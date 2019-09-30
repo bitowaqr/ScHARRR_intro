@@ -1,4 +1,5 @@
 name: "Putting the R in ScHARR"
+output_dir: "docs"
 navbar:
   left:
     - text: "Test"
