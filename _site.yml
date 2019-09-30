@@ -1,6 +1,7 @@
-name: "Putting the R in ScHARR"
+name: "learnR"
 output_dir: "docs"
 navbar:
+  title: "Putting the R in ScHARR"
   left:
     - text: "Welcome"
       href: index.html
@@ -10,5 +11,7 @@ navbar:
       href: Course_1_PS.html
     - text: "Working with data"
       href: Course1_2.html
+output:
+  html_document: default
 
 #   rmarkdown::render_site()
