@@ -1,0 +1,10 @@
+---
+title: "test"
+author: "Paul Schneider"
+date: "9/30/2019"
+output: html_document
+---
+
+
+You can embed data: <a href="../files/file.csv" download="file.csv">download this</a>
+

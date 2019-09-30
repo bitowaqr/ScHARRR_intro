@@ -1,0 +1,13 @@
+name: "Putting the R in ScHARR"
+navbar:
+  left:
+    - text: "Test"
+      href: test.html
+    - text: "Welcome"
+      href: index.html
+    - text: "The basics"
+      href: Course_1_PS.html
+    - text: "Working with data"
+      href: Course1_2.html
+
+#   rmarkdown::render_site()
