@@ -2,10 +2,10 @@ name: "Putting the R in ScHARR"
 output_dir: "docs"
 navbar:
   left:
-    - text: "Test"
-      href: test.html
     - text: "Welcome"
       href: index.html
+    - text: "Test"
+      href: test.html
     - text: "The basics"
       href: Course_1_PS.html
     - text: "Working with data"
