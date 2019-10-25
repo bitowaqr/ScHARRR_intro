@@ -7,6 +7,7 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
@@ -85,7 +86,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -246,18 +246,6 @@ $(document).ready(function () {
 }
 </style>
 
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
 <!-- code folding -->
 
 
@@ -289,13 +277,13 @@ $(document).ready(function () {
   <a href="index.html">Welcome</a>
 </li>
 <li>
-  <a href="test.html">Test</a>
+  <a href="getting_started.html">Getting started</a>
 </li>
 <li>
-  <a href="Course_1_PS.html">The basics</a>
+  <a href="working_with_data.html">Working with data</a>
 </li>
 <li>
-  <a href="Course1_2.html">Working with data</a>
+  <a href="resources.html">Resources</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -313,80 +301,60 @@ $(document).ready(function () {
 </div>
 
 
-<div id="background" class="section level2">
-<h2>Background</h2>
-<div id="background-1" class="section level3">
-<h3>Background</h3>
+<p><br></p>
+<div id="welcome" class="section level2">
+<h2>Welcome!</h2>
 <p>This series of short courses are designed to equip the participant with a basic set of tools to undertake research using R. The aim is to create a strong foundation on which participants can build skills and knowledge specific to their research and consultancy objectives. The course makes use of the authors’ experiences (many of which were frustrating) of working with R for data-science and statistical analysis. However there are many other resources available, and we would particularly recommend the freely available content at <em><a href="https://r4ds.had.co.nz/">R for Data Science</a></em> as a good place to recap the materials taught in this course. The hard copy of Hadley Wickham and Garrett Grolemund’s book of the same name (and content) is available at <em><a href="https://r4ds.had.co.nz/">Amazon.com</a></em>. Alternatively, a user guide is available on the CRAN R-Project website <a href="https://cran.r-project.org/doc/manuals/r-release/R-intro.html">here</a>, although the author finds this less easy to follow than Hadley Wickham’s book described above. Further details of where to go to answer more specific questions are provided throughout the course.</p>
-<p>Requirements: It is assumed that all participants on the course have their own laptop, and have previously used software such as Excel or SPSS. Some basic understanding of statistics and mathematics is required (e.g. mean, median, minimum, maximum). <br><br></p>
+<p><strong>Requirements</strong>: It is assumed that all participants on the course have their own laptop, and have previously used software such as Excel or SPSS. Some basic understanding of statistics and mathematics is required (e.g. mean, median, minimum, maximum).</p>
+<p><br><br></p>
 </div>
-<div id="who-are-we" class="section level3">
-<h3>Who are we:</h3>
-<p><em><a href="https://www.linkedin.com/in/robert-smith-53b28438/">Robert Smith</a></em> is a PhD Candidate at ScHARR, funded by the Wellcome Trust Doctoral Training Centre in Public Health Economics and Decision Science. His focus is on the methods used to estimate the costs and benefits of public health interventions, with a specific interest in microsimulation modelling (done in R). He has become increasingly intersted in the use of R-Markdown and R-Shiny to make research more transparent and to aid decision makers. While doing his PhD, Robert has been involved in projects with the WHO, Parkrun and Western Park Sports Medicine. <br></p>
-<p><em><a href="https://bitowaqr.github.io/about_me/">Paul Schneider</a></em> joined ScHARR as a PhD candidate in 2018. He is working on conceptual and methodological problems in valuing health outcomes in economic evaluations. A medical doctor and epidemiologist by training, he has used R in various research projects, ranging from the modeling costs of breast cancer, and value of information analyses, to the monitoring of influenza in real-time using online data. He is a keen advocate of open science practices. <br></p>
-<p><em><a href="https://www.linkedin.com/in/sarah-elizabeth-bates-647ab9145/">Sarah Bates</a></em> … <br></p>
-<p><em><a href="https://www.linkedin.com/in/tom-bayley-31ba8570/">Thomas Bayley</a></em> … <br></p>
-<p><em><a href="https://www.linkedin.com/in/naomi-gibbs-27810248/">Naomi Gibbs</a></em> is a PhD Candidate at ScHARR, funded by the Wellcome Trust Doctoral Training Centre in Public Health Economics and Decision Science. Naomi is working on a health economic model to inform alcohol pricing policy options in South Africa. She is working closely with local stakeholders to conceptualise and validate the model. Naomi will be using R to create and communicate her modelling work and hopes to enable greater engagement from policy makers through interactive dashboards. <br><br></p>
+<div id="who-are-we" class="section level2">
+<h2>Who are we</h2>
+<p>All of the tutors on the course are PhD candidates in the Wellcome Trust Doctoral Training Centre for Public Health Economics and Decision Science at the School of Health and Related Research at the University of Sheffield.</p>
+<table border="0"; padding = 0px>
+ <tr>
+    <td width= 160px><img src="img/rob.jpg" alt="image" width="140"> <br><br></td>
+    <td><a href="https://www.linkedin.com/in/robert-smith-53b28438/" target="_blank">Robert Smith</a> joined ScHARR in 2016. His research focuses on the methods used to estimate the costs and benefits of public health interventions, with a specific interest in microsimulation modelling (done in R). He has become increasingly intersted in the use of R-Markdown and R-Shiny to make research more transparent and to aid decision makers. While doing his PhD, Robert has been involved in projects with the WHO and Parkrun.<br><br></td>
+ </tr>
+ 
+ <tr>
+    <td width= 160px><img src="img/paul.png" alt="image" width="140"><br><br> </td>
+    <td><a href="https://bitowaqr.github.io/about_me/" target="_blank">Paul Schneider</a> joined ScHARR in 2018. He is working on conceptual and methodological problems in valuing health outcomes in economic evaluations. A medical doctor and epidemiologist by training, he has used R in various research projects, ranging from the modeling costs of breast cancer, and value of information analyses, to the monitoring of influenza in real-time using online data. He is a keen advocate of open science practices.<br><br></td>
+ </tr>
+ 
+ <tr>
+    <td width= 160px><img src="img/sarah.jpg" alt="image" width="140"><br><br> </td>
+    <td><a href="https://www.linkedin.com/in/sarah-elizabeth-bates-647ab9145/" target="_blank">Sarah Bates</a> joined ScHARR in 2016. Sarah is examining the role of psychological factors in weight trajectories during and after a weight management intervention, and how these factors can be used to inform weight trajectories in a health economic model of obesity. Sarah is using microsimulation modelling in R throughout her PhD. <br><br></td>
+ </tr>
+ 
+ <tr>
+    <td width= 160px><img src="img/tom.jpg" alt="image" width="140"><br><br> </td>
+    <td><a href="https://www.linkedin.com/in/tom-bayley-31ba8570/" target="_blank">Thomas Bayley</a> joined ScHARR in 2016. His research focuses on modelling the complex relationships that exist between Obesity, Depression and Socioeconomic status. He is interested in how data analysis and simulation modelling can be used to understand causal mechanisms in complex systems.<br><br></td>
+ </tr>
+ 
+ <tr>
+    <td width= 160px><img src="img/naomi.jpg" alt="image" width="140"><br><br> </td>
+    <td><a href="https://www.linkedin.com/in/robert-smith-53b28438/" target="_blank">Naomi Gibbs</a> Naomi is working on a health economic model to inform alcohol pricing policy options in South Africa. She is working closely with local stakeholders to conceptualise and validate the model. Naomi will be using R to create and communicate her modelling work and hopes to enable greater engagement from policy makers through interactive dashboards.<br><br></td>
+ </tr>
+</table>
+<p><br><br></p>
 </div>
-<div id="our-series-of-short-courses-in-r." class="section level3">
-<h3>Our series of Short Courses in R.</h3>
-<p>We have put together content for a series of short courses in R. These courses are designed to provide the user with the necessary skills to utilise R to answer questions using data. By the end of the series a user should be able to manage data efficiently, analyse relationships between variables and display this in aesthetically pleasing graphs, run simulations, feed back on methods and create apps to facilitate the decision making process. The objective is to give the user an understanding of what is possible, and the foundation on which to achieve it. <br></p>
-<div id="course-1---intro-to-r" class="section level4">
-<h4>Course 1 - Intro to R</h4>
+<div id="our-series-of-short-courses-in-r." class="section level2">
+<h2>Our series of Short Courses in R.</h2>
+<p>We have put together content for a series of short courses in R. These courses are designed to provide the user with the necessary skills to utilise R to answer questions using data. By the end of the series a user should be able to manage data efficiently, analyse relationships between variables and display this in aesthetically pleasing graphs, run simulations, feed back on methods and create apps to facilitate the decision making process. The objective is to give the user an understanding of what is possible, and the foundation on which to achieve it.</p>
+<p><br></p>
+<div id="course-1---intro-to-r" class="section level3">
+<h3><a href="Course_1_PS.html">Course 1 - Intro to R</a> <br /></h3>
 <p>By the end of the 1 day short course, the attendee should be able to:</p>
 <ul>
 <li>Install and navigate R Studio. Set working directory.</li>
 <li>Understand the types of objects and basic operations in R.</li>
 <li>Read in data from csv and excel files.</li>
-<li><p>Summarise data.</p></li>
-<li><p>Know where to find further information (StatsExchange/Google). <br></p></li>
-</ul>
-</div>
-<div id="course-2---beautiful-visualisations" class="section level4">
-<h4>Course 2 - Beautiful Visualisations</h4>
-<p>By the end of the half day short course, the attendee should be able to:</p>
-<ul>
-<li>Create beautiful graphs using ggplot.</li>
-<li>Use the ‘apply()’ function to improve run-time.</li>
-<li>Create a custom function.</li>
-<li>Know where to find further information (StatsExchange/Google). <br></li>
-</ul>
-</div>
-<div id="course-3---r-for-health-economics" class="section level4">
-<h4>Course 3 - R for Health Economics</h4>
-<p>By the end of 1 day short course, the attendee should also be able to:</p>
-<ul>
-<li>Understand the strengths and limitations of R for HTA.</li>
-<li>Create a markov model from scratch given known parameters.</li>
-<li>Create a microsimulation model to incorporate hetrogeneity between groups.</li>
-<li>Understand the importance of tranparency of coding. In particular commenting. <br></li>
-</ul>
-</div>
-<div id="course-4---r-shiny" class="section level4">
-<h4>Course 4 - R Shiny</h4>
-<p>By the end of the half day short course, the attendee should be able to:</p>
-<ul>
-<li>Understand the benefits and limitations of R-Shiny.</li>
-<li>Have a basic understanding of the principles behind R-Shiny.</li>
-<li>Create an R-Shiny application from scratch.</li>
-<li>Integrate beautiful plots into R-Shiny.</li>
-<li>Develop a user interface for an existing complex model in R-Shiny. <br></li>
-</ul>
-</div>
-<div id="course-5---collaboration-in-r" class="section level4">
-<h4>Course 5 - Collaboration in R</h4>
-<p>By the end of the half day short course, the attendee should be able to:</p>
-<ul>
-<li>Understand the strengths and limitations of R-Markdown.</li>
-<li>Create replicatable HTML, Word and PDF documents using R-Markdown.</li>
-<li>Include chunks of code, graphs, references and biblographies, links to websites and pictures.</li>
-<li>Change replicate analysis for new or updated datasets, or create templates for routine data.</li>
-<li>Create markdown presentations.</li>
+<li>Summarise data.</li>
+<li>Know where to find further information (StatsExchange/Google).</li>
 </ul>
 <p><br><br></p>
-
-
-</div>
+<hr />
 </div>
 </div>
 
@@ -407,6 +375,23 @@ $(document).ready(function () {
 
 
 </script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
