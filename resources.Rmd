@@ -1,0 +1,9 @@
+---
+output: html_document
+---
+
+<br><br>
+
+Sample data set: <a href="../files/file.csv" download="file.csv">download this</a>
+
+Slides: <a href="" download="">Intro presentation</a>

@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>getting_started.utf8.md</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Putting the R in ScHARR</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Welcome</a>
+</li>
+<li>
+  <a href="getting_started.html">Getting started</a>
+</li>
+<li>
+  <a href="working_with_data.html">Working with data</a>
+</li>
+<li>
+  <a href="resources.html">Resources</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+
+</div>
+
+
+<style type="text/css">
+.excc{
+background-color: lightblue;
+}
+</style>
+<p><br> <font size="+3"><strong>Course 1 - Introduction to R</font></strong></p>
+<!-- Course 1 - Introduction to R {.tabset}-->
+<div id="install-and-navigate-r-studio." class="section level1">
+<h1><span class="header-section-number">1</span> Install and navigate R Studio.</h1>
+<p>R is a free software environment for statistical analysis and data science. It is a collaborative effort started by Robert Gentleman and Ross Ihaka in New Zealand, but now made up of hundreds of people. R is made freely available by the Comprehensive R archive Network (CRAN), in the UK it can be downloaded through the University of Bristol <a href="https://www.stats.bris.ac.uk/R/">here</a>.</p>
+<p>Downloading R gives you the basic software environment, but an incredibly popular add-on called ‘RStudio’ is required to follow this course. You should download the free ‘RStudio Desktop Open Source Licence’ version for the laptop you will be attending the course with from <a href="https://www.rstudio.com/products/rstudio/#Desktop">RStudio.com</a>.</p>
+<p>If you have time before the course, it would be hugely beneficial to get familiar with RStudio.</p>
+<p><strong>Objectives:</strong></p>
+<blockquote>
+<p>Download R from <a href="https://www.stats.bris.ac.uk/R/" class="uri">https://www.stats.bris.ac.uk/R/</a>.<br />
+Download RStudio from <a href="https://www.rstudio.com/products/rstudio/#Desktop" class="uri">https://www.rstudio.com/products/rstudio/#Desktop</a>.</p>
+</blockquote>
+<p><br><br></p>
+</div>
+<div id="basics" class="section level1">
+<h1><span class="header-section-number">2</span> Basics</h1>
+<p>R studio contains four panels: a script panel where you can save your code (we will introduce this later so to begin there will just be three panels), a console where you can enter and run your code and where the outputs are displayed, an environment which lists the objects you create, and another window which includes help, files and displays any plots you create.</p>
+<p><img src="img/panes.png" alt="image" width="100%"></p>
+<p>Our course starts in the R console, which those of you who are familiar with R but not RStudio will recognise. We will enter commands as input into the console, and receive output from the console. We will start with some simple basic operations, for which R is clearly very excessive.</p>
+<p><br><br></p>
+</div>
+<div id="basic-operations" class="section level1">
+<h1><span class="header-section-number">3</span> Basic operations</h1>
+<p>Entering <code>1+1</code>, we get the output <code>[1] 2</code>. The output is <code>2</code>, but the <code>[1]</code> lets us know that the number 2 is the first number of output. If we had an output that was particularly large (e.g. 100 seperate numbers) then r may let us know that the first row displayed starts with the first value <code>[1]</code> and the second row starts with the <code>[x]</code>th value.</p>
+<pre class="r"><code>## add 1 to 1. 
+1 + 1</code></pre>
+<pre><code>## [1] 2</code></pre>
+<pre class="r"><code>## divide 12 by 4
+12/4</code></pre>
+<pre><code>## [1] 3</code></pre>
+<pre class="r"><code>## times 3 by 7
+3*7</code></pre>
+<pre><code>## [1] 21</code></pre>
+<pre class="r"><code>## 10 to the power 3
+10^3</code></pre>
+<pre><code>## [1] 1000</code></pre>
+<pre class="r"><code>## root isn&#39;t a basic operation so we will look at later.</code></pre>
+<p><br><br></p>
+</div>
+<div id="objects" class="section level1">
+<h1><span class="header-section-number">4</span> Objects</h1>
+<p>It is possible to create objects, an object can take a number of forms (e.g. a number, a vector of numbers, a matrix, a data-frame). We can then use these objects going forward rather than the values directly. Operations can be applied to these objects, and objects can be over-written. R is basically just objects and functions.</p>
+<pre class="r"><code>## objects basics
+x &lt;-  3
+y &lt;-  5
+x + y</code></pre>
+<pre><code>## [1] 8</code></pre>
+<pre class="r"><code>x &lt;-  4
+x + y</code></pre>
+<pre><code>## [1] 9</code></pre>
+<pre class="r"><code>z &lt;- x + y
+z</code></pre>
+<pre><code>## [1] 9</code></pre>
+<p><br><br></p>
+</div>
+<div id="manipulating-objects" class="section level1">
+<h1><span class="header-section-number">5</span> Manipulating Objects</h1>
+<pre class="r"><code>a &lt;- 10
+a</code></pre>
+<pre><code>## [1] 10</code></pre>
+<pre class="r"><code>a &lt;- a + 1 
+a </code></pre>
+<pre><code>## [1] 11</code></pre>
+<p><br><br></p>
+<div id="exercises" class="section level2">
+<h2><span class="header-section-number">5.1</span> <em>Exercises</em></h2>
+<pre class="excc excc"><code>  1. Set d equal to 10.
+  2. divide d by 5
+  3. multiply d by 8
+  4. add 8 to d 
+  5. what is d?</code></pre>
+<details>
+<summary>Show solution</summary>
+<p>
+<pre><code>  1. d = 10
+  2. d = d / 5
+  3. d = d * 8
+  4. d = d + 8
+  5. 24</code></pre>
+</p>
+</details>
+<p><br><br></p>
+</div>
+</div>
+<div id="evaluations" class="section level1">
+<h1><span class="header-section-number">6</span> Evaluations</h1>
+<p>We can perform evaluations, which provide a true or false answer. For example the input <code>4&gt;2</code> returns <code>FALSE</code>.</p>
+<p>It can be very useful in cases where an outcome is binary (e.g. an individual dies or remains alive). Or where we want to change a continuous variable to a binary.</p>
+<pre class="r"><code>## simple evaluations
+## 4 is greater than 2
+4 &gt; 2</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>## 4 is greater than 5
+4 &gt; 5</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code>## 4 is equal to 3, note double == for an evaluation
+4 == 3</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code>## 4 is not equal to 3, note != is not equal to.
+4 != 3</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>## the character x is equal to the character x.
+&quot;dog&quot; == &quot;dog&quot;</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>&quot;dog&quot; == &quot;cat&quot;</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code>## the output from an evaluation can be stored as an object, x. This object can be subject to operations &amp; manipulations.
+b &lt;- 4&lt;2
+b</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<p><br><br></p>
+</div>
+<div id="object-classes-and-types" class="section level1">
+<h1><span class="header-section-number">7</span> Object classes and types</h1>
+<p>Objects don’t have to take a single value. For example a single object may be the heights of each child in a group of children (in the example below a small class of 4).</p>
+<p>We have been working with single values, which are vectors of 1. To illustrate the different classes we are going to create some vectors which we will then join together later to make a dataframe.</p>
+</div>
+<div id="object-classes" class="section level1">
+<h1><span class="header-section-number">8</span> Object Classes</h1>
+<p>Different class include numeric, character, logical, integer &amp; complex (ignore).</p>
+<pre class="r"><code>## numeric
+height &lt;- c(1.72,1.78,1.65,1.90) 
+height</code></pre>
+<pre><code>## [1] 1.72 1.78 1.65 1.90</code></pre>
+<pre class="r"><code>## numeric
+weight &lt;- c(68,75,55,79)
+weight</code></pre>
+<pre><code>## [1] 68 75 55 79</code></pre>
+<pre class="r"><code>class(weight)</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<pre class="r"><code>## character
+first_name &lt;- c(&quot;Alice&quot;,&quot;Bob&quot;,&quot;Harry&quot;,&quot;Jane&quot;)
+first_name</code></pre>
+<pre><code>## [1] &quot;Alice&quot; &quot;Bob&quot;   &quot;Harry&quot; &quot;Jane&quot;</code></pre>
+<pre class="r"><code>## factor
+sex &lt;- factor(x = c(&quot;F&quot;,&quot;M&quot;,&quot;M&quot;,&quot;F&quot;))
+sex</code></pre>
+<pre><code>## [1] F M M F
+## Levels: F M</code></pre>
+<pre class="r"><code>## logical
+tall &lt;- height &gt; 1.8</code></pre>
+<p><br><br></p>
+</div>
+<div id="operations-on-vectors" class="section level1">
+<h1><span class="header-section-number">9</span> Operations on Vectors</h1>
+<pre class="r"><code># Adding:
+c(1,2,3) + 1</code></pre>
+<pre><code>## [1] 2 3 4</code></pre>
+<pre class="r"><code>c(1,2,3) + c(1,2,3)</code></pre>
+<pre><code>## [1] 2 4 6</code></pre>
+<pre class="r"><code># multiplication
+heightft &lt;- height*3.28</code></pre>
+<p><br><br></p>
+<div id="exercises-1" class="section level2">
+<h2><span class="header-section-number">9.1</span> <em>Exercises</em></h2>
+<pre class="excc excc"><code>1. Create a vector called &#39;odds&#39; with the numbers 1,3,5,7,9.
+2. Show what class odds is. 
+
+3. Evaluate which numbers in the odd vector are greater than 4. 
+
+4. Create a vector called &#39;fail&#39; containing 1,3,5,&#39;seven&#39;,9.
+5. Show what class fail is.
+
+6. Create a vector that gives everyone&#39;s weight in pounds (2.2lbs to kg)</code></pre>
+<details>
+<summary>Show solution</summary>
+<p>
+<pre><code>  1. odds = c(1,3,5,7,9)
+  2. class(odds)
+  3. odds &gt; 4
+  4. fail = c(1,3,5,&#39;seven&#39;,9)
+  5. class(fail)
+  6. lb_from_weight = weight * 2.2
+     lb_from_weight</code></pre>
+</p>
+</details>
+<p><br><br></p>
+</div>
+</div>
+<div id="basic-object-types" class="section level1">
+<h1><span class="header-section-number">10</span> Basic object Types</h1>
+<p>There are multiple types of object in R. We can store objects together in a data-frame. In our example data-frame each column is a variable (height, weight, first_name), and each row is an individual.</p>
+<p>Different object types include:</p>
+<ul>
+<li>Vector - single variable a 1x1 vector. Vector all elements same data-type.</li>
+<li>Matrix - all same data-type.</li>
+<li>Dataframe - columns same data type.</li>
+<li>List - anything goes.</li>
+</ul>
+<pre class="r"><code>## data frame- columns are variables, rows are observations.
+df &lt;- data.frame(height,weight,first_name,sex)
+df</code></pre>
+<pre><code>##   height weight first_name sex
+## 1   1.72     68      Alice   F
+## 2   1.78     75        Bob   M
+## 3   1.65     55      Harry   M
+## 4   1.90     79       Jane   F</code></pre>
+<pre class="r"><code>## we can select a single variable within the dataframe using the dollar sign.
+df$height</code></pre>
+<pre><code>## [1] 1.72 1.78 1.65 1.90</code></pre>
+<pre class="r"><code>## We can add a new variable easily, in this case based on other variables within the dataframe.
+df$bmi &lt;- df$weight / df$height^2 
+df</code></pre>
+<pre><code>##   height weight first_name sex      bmi
+## 1   1.72     68      Alice   F 22.98540
+## 2   1.78     75        Bob   M 23.67125
+## 3   1.65     55      Harry   M 20.20202
+## 4   1.90     79       Jane   F 21.88366</code></pre>
+<p><br><br></p>
+</div>
+<div id="subsetting" class="section level1">
+<h1><span class="header-section-number">11</span> Subsetting</h1>
+<p>We can subset our data, to reduce it to those we are interested in. This is useful when cleaning our data, and when changing a continuous variable to a categorical.</p>
+<pre class="r"><code>## Our data-frame contains the height, weight, first name and bmi of 4 individuals.
+df</code></pre>
+<pre><code>##   height weight first_name sex      bmi
+## 1   1.72     68      Alice   F 22.98540
+## 2   1.78     75        Bob   M 23.67125
+## 3   1.65     55      Harry   M 20.20202
+## 4   1.90     79       Jane   F 21.88366</code></pre>
+<pre class="r"><code>#To subset a data frame we can use square brackets i.e df[row,column]
+#Selecting a column(s)
+df$height</code></pre>
+<pre><code>## [1] 1.72 1.78 1.65 1.90</code></pre>
+<pre class="r"><code>df[,&quot;height&quot;]</code></pre>
+<pre><code>## [1] 1.72 1.78 1.65 1.90</code></pre>
+<pre class="r"><code>df[,1]</code></pre>
+<pre><code>## [1] 1.72 1.78 1.65 1.90</code></pre>
+<pre class="r"><code>df[,1:3]</code></pre>
+<pre><code>##   height weight first_name
+## 1   1.72     68      Alice
+## 2   1.78     75        Bob
+## 3   1.65     55      Harry
+## 4   1.90     79       Jane</code></pre>
+<pre class="r"><code>df[,c(1,3)]</code></pre>
+<pre><code>##   height first_name
+## 1   1.72      Alice
+## 2   1.78        Bob
+## 3   1.65      Harry
+## 4   1.90       Jane</code></pre>
+<pre class="r"><code>#selecting a row(s)
+df[1,]</code></pre>
+<pre><code>##   height weight first_name sex     bmi
+## 1   1.72     68      Alice   F 22.9854</code></pre>
+<pre class="r"><code>#We might also want to select observations (rows) based on characteristics of the data
+#E.g. we might want to only look at the data for people who are taller than 1.75m
+
+#create a logical variable called min_height which contains T/F for each individual being over 175cm.
+min_height &lt;- df$height &gt;= 1.75
+min_height</code></pre>
+<pre><code>## [1] FALSE  TRUE FALSE  TRUE</code></pre>
+<pre class="r"><code>## Subset the data to include only those observations (rows) for which height &gt; 175cm (using min_height).
+df.at_least_175 &lt;- df[min_height,]
+df.at_least_175</code></pre>
+<pre><code>##   height weight first_name sex      bmi
+## 2   1.78     75        Bob   M 23.67125
+## 4   1.90     79       Jane   F 21.88366</code></pre>
+<pre class="r"><code>#People smaller than 1.75m
+## Subset the data to include only those who are not above min-height of 175cm.
+smaller = df$height &lt; 1.75
+df[smaller,]</code></pre>
+<pre><code>##   height weight first_name sex      bmi
+## 1   1.72     68      Alice   F 22.98540
+## 3   1.65     55      Harry   M 20.20202</code></pre>
+<pre class="r"><code>df[!min_height,]</code></pre>
+<pre><code>##   height weight first_name sex      bmi
+## 1   1.72     68      Alice   F 22.98540
+## 3   1.65     55      Harry   M 20.20202</code></pre>
+<p>Note that there are other more advanced methods, which uses pipes and require less code (these are covered in more advanced courses). <br><br></p>
+<div id="exercises-2" class="section level2">
+<h2><span class="header-section-number">11.1</span> <em>Exercises</em></h2>
+<pre class="excc excc"><code>1. Select the 3rd row from the data frame
+
+2. Select the weight variable from the data frame using your prefered method
+
+3. Select alice&#39;s data from the data frame 
+
+4. Subset the data frame to show just the data for the females
+
+5. type df[,-1] what does this give</code></pre>
+<details>
+<summary>Show solution</summary>
+<p>
+<pre><code>  1. df[3,]
+  2. df[,&quot;weight&quot;]
+  3. df[df$first_name == &quot;Alice&quot;,]
+  4. df[df$sex == &quot;F&quot;,]
+  5. Prints all rows, except the first one
+  </code></pre>
+</p>
+</details>
+<p><br></p>
+<hr />
+<p><br></p>
+</div>
+</div>
+<div id="exercises-3" class="section level1">
+<h1><span class="header-section-number">12</span> Exercises</h1>
+<p><strong>Exercise 1</strong></p>
+<p>Calculate the following:</p>
+<ol style="list-style-type: lower-alpha">
+<li><code>5*10</code> <br></li>
+<li><code>20/3</code> <br></li>
+</ol>
+<p>Calculate <code>x</code> where <code>a = 20</code>, <code>b = 9</code>, <code>c = 5</code>, <code>d = 1.2</code>.</p>
+<ol start="3" style="list-style-type: lower-alpha">
+<li><span class="math inline">\(x = 4b + 7c + 3d\)</span> <br></li>
+<li><span class="math inline">\(x = \frac{8b + 4c -12d}{a}\)</span></li>
+</ol>
+<p><br><br></p>
+<p><strong>Exercise 2</strong></p>
+<p><code>x &lt;- c(10,30,4,52,60,7,8,10,12,15,14,17,19,20,25,30)</code></p>
+<ol style="list-style-type: lower-alpha">
+<li>Which numbers in <code>x</code> are above 8 <br></li>
+<li>Which numbers are equal to 10. <br></li>
+<li>Which numbers are below 8 or above 30. <br></li>
+<li><p>Can you create a matrix with numbers and characters. <br></p>
+<pre><code> names &lt;- c(&quot;Anne&quot;,&quot;Tom&quot;,&quot;Jamie&quot;,&quot;Max&quot;,&quot;Claire&quot;)
+ ages &lt;- c(12,16,25,34,28)
+ cbind(names,ages)</code></pre></li>
+</ol>
+<p>What happens if you try to use the ages?</p>
+<p><br> e) Create a dataframe for five individuals (Andrew, Betty, Carl, Diane and Elisa) who are aged (62,80,24,40,56) and have gender (male, female, male,female, female).</p>
+<p><br> f) Use evaluations and subsetting to find the characteristics of the individual who can claim their free bus pass (age 65+).</p>
+<p><br> g) Create a variable in the dataframe called life expectancy, set this to 83 for females and 80 for males.</p>
+<p><br> h) Create another variable called lyr (life years remaining) which is the number of years to life expectancy for each individual</p>
+<p><br><br></p>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
