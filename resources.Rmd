@@ -4,6 +4,6 @@ output: html_document
 
 <br><br>
 
-Sample data set: <a href="https://raw.githubusercontent.com/bitowaqr/ScHARRR_intro/master/files/file.csv" download="file.csv">download</a>
+Sample data set: <a href="https://raw.githubusercontent.com/bitowaqr/ScHARRR_intro/master/files/file.csv" download="file.csv">download</a> (right click -> save as...)
 
 Slides: <a href="" download="">Intro presentation</a>
