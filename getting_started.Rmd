@@ -449,4 +449,10 @@ What happens if you try to use the ages?
 
 <br><br>
 
+****
 
+\begingroup\small
+This course was created for educational purposes. The content was created by Robert Smith^1^, in collaboration with Paul Schneider, Thomas Bayley, Naomi Gibbs, Sarah Bates and Amy Chang.
+
+All errors are the responsibility of Robert Smith, please send any feedback to rasmith3@sheffield.ac.uk.  
+\endgroup

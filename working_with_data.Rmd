@@ -316,3 +316,12 @@ We hope to see you again on further courses with us at ScHARR. However, alternat
 
 Also, you can learn R in R with [swirl](https://swirlstats.com/). Swirl has a range of short courses (approx 30mins) which are undertaken in R. You can download swirl by typing **install.packages("swirl")** into R. Once installed loading swirl from the library with **library(swirl)** and then following instructions within R.
 
+<br><br>
+
+****
+
+\begingroup\small
+This course was created for educational purposes. The content was created by Robert Smith^1^, in collaboration with Paul Schneider, Thomas Bayley, Naomi Gibbs, Sarah Bates and Amy Chang.
+
+All errors are the responsibility of Robert Smith, please send any feedback to rasmith3@sheffield.ac.uk.  
+\endgroup
