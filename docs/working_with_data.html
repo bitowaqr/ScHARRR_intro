@@ -371,140 +371,192 @@ div.tocify {
 </div>
 
 
-<div id="working-with-data-in-r" class="section level3">
-<h3>Working with Data in R</h3>
-<div id="keeping-track-of-progress-in-r" class="section level4">
-<h4>Keeping Track of progress in R</h4>
-<p>So far we have been working exclusively in the R console. This is useful for trialing code and doing quick intial analyses, however, the code we have typed is not saved for when we might look back at it in the future. If we want to keep a permanent record of our code, the we do this using a r-script. An r-script is basically a text-file containing lines of r-code. Usually we create them from scratch within R, though they can be created by importing a text file from text editor.</p>
-<p>The easiest way to create an r-file is by clicking the button in the top left corner of RStudion that looks like a piece of paper with a greenplus over it. <br><br></p>
-<div id="setting-working-directory" class="section level5">
-<h5>Setting Working Directory</h5>
-<p>When we use R, it is always associated with a specific directory within our computer. The place that R is associated with is known as the working directory. The working directory is the default place where R will look when we try to import (export) objects into (to) R as well as the place that files are saved to. We can find out which directory R is pointed at by using the getwd() function:</p>
+<div id="working-with-data-in-r" class="section level2">
+<h2>Working with Data in R</h2>
+<div id="keeping-track-of-progress-in-r" class="section level3">
+<h3>Keeping Track of progress in R</h3>
+<p>So far we have been working exclusively in the R console. This is useful for trialing code and doing quick intial analyses, however, the code we have typed is not saved for when we might look back at it in the future. If we want to keep a permanent record of our code, we can do this using a r-script. An r-script is basically a text-file containing lines of r-code. Usually we create them from scratch within R, though they can be created by importing a text file from text editor.</p>
+<p>The easiest way to create an r-file is by clicking the button in the top left corner of RStudio that looks like a piece of paper with a green plus over it. The use of # for commenting is common. For example below</p>
+<pre class="r"><code>getwd()      # this line of code sets the working directory.
+paste(&quot;RRRRR&quot;)  # this line of code pastes RRRRR.
+#paste(&quot;RRRR&quot;) # this line doesn&#39;t
+
+# One is enough, but sometimes I can use a few to make the code tidy, like below.
+
+#====
+# Section 1
+#====</code></pre>
+<div id="setting-working-directory" class="section level4">
+<h4>Setting Working Directory</h4>
+<p>When we use R, it is always associated with a specific directory within our computer. The place that R is associated with is known as the working directory. The working directory is the default place where R will look when we try to import (export) objects into R as well as the place that files are saved to. We can find out which directory R is pointed at by using the getwd() function:</p>
 <pre class="r"><code>getwd()</code></pre>
 <pre><code>## [1] &quot;/Users/waqr/Desktop/r course website&quot;</code></pre>
-<p><br><br></p>
-<p>If you know that you will be reading and writing multiple files from and to the same folder, you can set the working directory to that folder. This can be useful when a project has many different r-files and associated items such as data, plots etc. In this case, one can set the working directory to the folder containing the files to make sure that everything stays in one place. It is also useful for when projects are shared between individuals using different computers, as setting the working directory to the shared folder prevents any isses that could arise from people using different ways to organise their work.</p>
-<p>A new working directory can be set by clicking on the tab (Session) then (Set_Working Directory), or by the command setwd:</p>
-<pre class="r"><code>## filename = &quot;C:/Users/Robert/Documents&quot;
-
-setwd(filename)</code></pre>
-<p><br><br></p>
+<p>If you know that you will be reading and writing multiple files from and to the same folder, you can set the working directory to that folder. This can be useful when a project has many different r-files and associated items such as data, functions, plots etc. In this case, one can set the working directory to the folder containing the files to make sure that everything stays in one place. It is also useful for when projects are shared between individuals using different computers, as setting the working directory to the shared folder prevents any isses that could arise from people organising their files in different ways.</p>
+<p>A new working directory can be set by clicking on the tab (Session) then (Set_Working Directory), or by the command setwd. Below I give the example of setting the working directory to my documents.</p>
+<pre class="r"><code> filename = &quot;C:/Users/Robert/Google Drive/Teaching/R Course/Intro_to_R&quot;
+ setwd(filename)
+ getwd()</code></pre>
 </div>
 </div>
-<div id="importing-data" class="section level4">
-<h4>Importing Data</h4>
+<div id="importing-data" class="section level3">
+<h3>Importing Data</h3>
 <p>In almost every project, you will want to import some data to analyse. This data will come in a variety of formats. R studio has a nice feature in Environment&gt;Import_Dataset which enables you to select the file you wish to download (similar to STATA) from your computer. The data is then imported into R and the code that R has used is displayed in the console.</p>
 <p>It is possible to import files in the following formats:</p>
-<div class="line-block"> Type | Suffix |</div>
-<p>|——–|:———-:|</p>
-<div class="line-block">R |.R |</div>
-<div class="line-block">CSV |.csv |</div>
-<div class="line-block">Excel |.xls/.xlsx |</div>
-<div class="line-block">SPSS |.spv |</div>
-<div class="line-block">Stata |.dta |</div>
-<p>If we want more control over the way that R imports the data we can also use the necessary commands in R directly. Some importnant examples of this are given in the next subsections.</p>
-<p>In addition, packages can be installed to import data in almost any format. For example the readr package can read in spreadsheets from text files or tab delimited files. <br><br></p>
-<div id="csv-comma-seperated-values" class="section level5">
-<h5>CSV (Comma-seperated values)</h5>
-<p>A common format of data that you will likely import is csv data.</p>
-<p>We can import the file using the full path with the file name and suffix included such as below:</p>
-<pre class="r"><code>car_Data &lt;- read.csv(file = &quot;car_Data.csv&quot;, header = TRUE)</code></pre>
-<p><br><br></p>
+<table>
+<thead>
+<tr class="header">
+<th>Type</th>
+<th align="center">Suffix</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>R</td>
+<td align="center">.R</td>
+</tr>
+<tr class="even">
+<td>CSV</td>
+<td align="center">.csv</td>
+</tr>
+<tr class="odd">
+<td>Excel</td>
+<td align="center">.xls/.xlsx</td>
+</tr>
+<tr class="even">
+<td>SPSS</td>
+<td align="center">.spv</td>
+</tr>
+<tr class="odd">
+<td>Stata</td>
+<td align="center">.dta</td>
+</tr>
+</tbody>
+</table>
+<p>If we want more control over the way that R imports the data we can also use the necessary commands in R directly. Some important examples of this are given in the next subsections.</p>
+<p>In addition, packages can be installed to import data in almost any format. Packages are collections of R functions and code in an organised framework. The directory where packages are stored on your computer is called the library. For example the readr package which allows for easier reading of data can be installed from the internet using the code <em>install.packages(“readr”)</em>, then loaded into R using <em>library(readr)</em>.</p>
+<div id="csv-comma-seperated-values" class="section level4">
+<h4>CSV (Comma-seperated values)</h4>
+<p>A common format of data that you will likely import is comma-seperated values (CSV) data. CSV Data is seperated by commas in rows. For example:</p>
+<p>Age,Name,Sex,<br />
+30,Richard,Male,<br />
+27,Hazel,Female,<br />
+28,Louise,&quot;&quot;,</p>
+<p>Creates:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Age</th>
+<th align="center">Name</th>
+<th align="center">Sex</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>30</td>
+<td align="center">Richard</td>
+<td align="center">Male</td>
+</tr>
+<tr class="even">
+<td>27</td>
+<td align="center">Hazel</td>
+<td align="center">Female</td>
+</tr>
+<tr class="odd">
+<td>28</td>
+<td align="center">Louise</td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<p>We can import the file using the full path with the file name and suffix included such as below. This will look in the working directory for the file specified, so given our working directory is “C:/Users/Robert/Documents” R will look in the Documents folder for the file “car_Data.csv”.</p>
+<p>It will then convert the first row to be the header of the data. There are numerous other options which we will skip for now.</p>
+<pre class="r"><code># car_Data &lt;- read.csv(file = &quot;car_Data.csv&quot;, header = TRUE)
+# if you couldn&#39;t get that to work don&#39;t worry, this is an example dataset from base R.
+car_Data &lt;- mtcars</code></pre>
 </div>
-<div id="downloading-files-from-the-internet" class="section level5">
-<h5>Downloading files from the internet</h5>
-<p>Sometimes it is more practical to download files directly from the internet. There are lots of different packages out there to do this. The one I use was developed by Hadley Wickham, called readr. Here we are going to download some data from the github page for the course.</p>
-<pre class="r"><code>## load the readr package, if this is not installed then install it.
-
+<div id="downloading-files-from-the-internet" class="section level4">
+<h4>Downloading files from the internet</h4>
+<p>Sometimes it is more practical to download files directly from the internet. There are lots of different packages out there to do this. The one I use was developed by Hadley Wickham, called readr. Below we are going to download some data from the course github page. Github is a hosting service for source code (in this case R code), it allows users to store code, data and other files. This aids version control, collaboration, replication and consistency of material over time,</p>
+<pre class="r"><code># load the readr package, if this is not installed then install it.
+#install.packages(&quot;readr&quot;)
 library(readr)
-
- 
-
 #use the function read_csv
-
-#car_data &lt;- read_csv(&quot;https://raw.githubusercontent.com/RobertASmith/Intro_to_R/master/car_Data.csv&quot;, header = TRUE)
-car_Data = mtcars</code></pre>
-<p><br><br></p>
+car_Data &lt;- read_csv(&quot;https://raw.githubusercontent.com/RobertASmith/Intro_to_R/master/car_Data.csv&quot;, header = TRUE)</code></pre>
 <p>Downloading files directly to R within the same script as the analysis can be useful since it reduces the risk of you accidently changing the file. Just be careful that the data will always be available.</p>
 </div>
 </div>
-<div id="summarising-data" class="section level4">
-<h4>Summarising Data</h4>
+<div id="summarising-data" class="section level3">
+<h3>Summarising Data</h3>
 <p>Once we have our data read into R, we want to ensure that the data is as we would expect, in the correct format etc.</p>
-<p>We can use the function <em>head</em> to look at the first 6 number of lines of the data. We can specify a different number of lines by chancing the function input.</p>
-<pre class="r"><code>## head data with default 6 rows
-
-head(car_Data)
-
- 
-
-## head data with 10 rows
-
+<p>We can use the function <em>head</em> to look at the first 6 number of lines of the data. We can specify a different number of lines by changing the function input.</p>
+<pre class="r"><code># head data with default 6 rows
+head(car_Data)</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["mpg"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["cyl"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["disp"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["hp"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["drat"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["wt"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["qsec"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["vs"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["am"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["gear"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["carb"],"name":[11],"type":["dbl"],"align":["right"]}],"data":[{"1":"21.0","2":"6","3":"160","4":"110","5":"3.90","6":"2.620","7":"16.46","8":"0","9":"1","10":"4","11":"4","_rn_":"Mazda RX4"},{"1":"21.0","2":"6","3":"160","4":"110","5":"3.90","6":"2.875","7":"17.02","8":"0","9":"1","10":"4","11":"4","_rn_":"Mazda RX4 Wag"},{"1":"22.8","2":"4","3":"108","4":"93","5":"3.85","6":"2.320","7":"18.61","8":"1","9":"1","10":"4","11":"1","_rn_":"Datsun 710"},{"1":"21.4","2":"6","3":"258","4":"110","5":"3.08","6":"3.215","7":"19.44","8":"1","9":"0","10":"3","11":"1","_rn_":"Hornet 4 Drive"},{"1":"18.7","2":"8","3":"360","4":"175","5":"3.15","6":"3.440","7":"17.02","8":"0","9":"0","10":"3","11":"2","_rn_":"Hornet Sportabout"},{"1":"18.1","2":"6","3":"225","4":"105","5":"2.76","6":"3.460","7":"20.22","8":"1","9":"0","10":"3","11":"1","_rn_":"Valiant"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<pre class="r"><code># head data with 10 rows
 head(car_Data, n = 10)</code></pre>
-<p><br><br></p>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["mpg"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["cyl"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["disp"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["hp"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["drat"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["wt"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["qsec"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["vs"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["am"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["gear"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["carb"],"name":[11],"type":["dbl"],"align":["right"]}],"data":[{"1":"21.0","2":"6","3":"160.0","4":"110","5":"3.90","6":"2.620","7":"16.46","8":"0","9":"1","10":"4","11":"4","_rn_":"Mazda RX4"},{"1":"21.0","2":"6","3":"160.0","4":"110","5":"3.90","6":"2.875","7":"17.02","8":"0","9":"1","10":"4","11":"4","_rn_":"Mazda RX4 Wag"},{"1":"22.8","2":"4","3":"108.0","4":"93","5":"3.85","6":"2.320","7":"18.61","8":"1","9":"1","10":"4","11":"1","_rn_":"Datsun 710"},{"1":"21.4","2":"6","3":"258.0","4":"110","5":"3.08","6":"3.215","7":"19.44","8":"1","9":"0","10":"3","11":"1","_rn_":"Hornet 4 Drive"},{"1":"18.7","2":"8","3":"360.0","4":"175","5":"3.15","6":"3.440","7":"17.02","8":"0","9":"0","10":"3","11":"2","_rn_":"Hornet Sportabout"},{"1":"18.1","2":"6","3":"225.0","4":"105","5":"2.76","6":"3.460","7":"20.22","8":"1","9":"0","10":"3","11":"1","_rn_":"Valiant"},{"1":"14.3","2":"8","3":"360.0","4":"245","5":"3.21","6":"3.570","7":"15.84","8":"0","9":"0","10":"3","11":"4","_rn_":"Duster 360"},{"1":"24.4","2":"4","3":"146.7","4":"62","5":"3.69","6":"3.190","7":"20.00","8":"1","9":"0","10":"4","11":"2","_rn_":"Merc 240D"},{"1":"22.8","2":"4","3":"140.8","4":"95","5":"3.92","6":"3.150","7":"22.90","8":"1","9":"0","10":"4","11":"2","_rn_":"Merc 230"},{"1":"19.2","2":"6","3":"167.6","4":"123","5":"3.92","6":"3.440","7":"18.30","8":"1","9":"0","10":"4","11":"4","_rn_":"Merc 280"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <p>We can summarise a dataset using the function <em>summary</em>. This shows us the length, class and Mode. If the class is numeric it will give some indication of the distribution by displaying min, median, mean, max.</p>
-<pre class="r"><code>## summarise the data,
-
-summary(car_Data)
-
-
-## summarise single variable
-
+<pre class="r"><code># summarise the data,
+summary(car_Data)</code></pre>
+<pre><code>##       mpg             cyl             disp             hp       
+##  Min.   :10.40   Min.   :4.000   Min.   : 71.1   Min.   : 52.0  
+##  1st Qu.:15.43   1st Qu.:4.000   1st Qu.:120.8   1st Qu.: 96.5  
+##  Median :19.20   Median :6.000   Median :196.3   Median :123.0  
+##  Mean   :20.09   Mean   :6.188   Mean   :230.7   Mean   :146.7  
+##  3rd Qu.:22.80   3rd Qu.:8.000   3rd Qu.:326.0   3rd Qu.:180.0  
+##  Max.   :33.90   Max.   :8.000   Max.   :472.0   Max.   :335.0  
+##       drat             wt             qsec             vs        
+##  Min.   :2.760   Min.   :1.513   Min.   :14.50   Min.   :0.0000  
+##  1st Qu.:3.080   1st Qu.:2.581   1st Qu.:16.89   1st Qu.:0.0000  
+##  Median :3.695   Median :3.325   Median :17.71   Median :0.0000  
+##  Mean   :3.597   Mean   :3.217   Mean   :17.85   Mean   :0.4375  
+##  3rd Qu.:3.920   3rd Qu.:3.610   3rd Qu.:18.90   3rd Qu.:1.0000  
+##  Max.   :4.930   Max.   :5.424   Max.   :22.90   Max.   :1.0000  
+##        am              gear            carb      
+##  Min.   :0.0000   Min.   :3.000   Min.   :1.000  
+##  1st Qu.:0.0000   1st Qu.:3.000   1st Qu.:2.000  
+##  Median :0.0000   Median :4.000   Median :2.000  
+##  Mean   :0.4062   Mean   :3.688   Mean   :2.812  
+##  3rd Qu.:1.0000   3rd Qu.:4.000   3rd Qu.:4.000  
+##  Max.   :1.0000   Max.   :5.000   Max.   :8.000</code></pre>
+<pre class="r"><code># summarise single variable
 summary(car_Data$mpg)</code></pre>
-<p><br><br></p>
-</div>
-<div id="summarising" class="section level4">
-<h4>Summarising</h4>
-<p>Data-frames <em>(Do we need this section?)</em></p>
-<p>Summarise data-frame:</p>
-<pre class="r"><code>## We can summarise our data-frame with height, weight, first name and BMI.
-
-#summary(df)
-
- 
-
-## The data-frame height variable is numeric, will return quantiles.
-
-#(df$height)
-
- 
-
-## The data-frame first-name lists the first name and number (character)
-
-#summary(df$first_name)</code></pre>
-<p><br><br></p>
-<p>We can use the output of the summary function to create objects. The summary of the year variable gives the quantiles. These can be stored as an object, here called temp (temporary object). If we just want any one number from the vector of quantiles we can define this in brackets. The script below creates two new objects, median and range.</p>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   10.40   15.43   19.20   20.09   22.80   33.90</code></pre>
+<p>We can use the output of the summary function to create objects. The summary of the mpg variable gives the quantiles. These can be stored as an object, here called temp (temporary object). If we just want any one number from the vector of quantiles we can define this in brackets. The script below creates two new objects, median and range.</p>
 <pre class="r"><code>temp &lt;- summary(car_Data$mpg)
-
 Median  &lt;- temp[&#39;Median&#39;]
-
 Range   &lt;- temp[&#39;Max.&#39;] - temp[&#39;Min.&#39;]</code></pre>
-<p><br><br></p>
 </div>
-<div id="plotting-data" class="section level4">
-<h4>Plotting Data</h4>
+<div id="plotting-data" class="section level3">
+<h3>Plotting Data</h3>
 <p><em>Line Plot</em></p>
 <p>R also has wide ranging plotting capabilites. For basic plotting we can use the <em>plot</em> function. In this next example, we will prodcue a simple plot of miles per gallon vs engine displacement in our data set to see what the relationship between the variables.</p>
 <pre class="r"><code>#plot of mpg vs disp
-car_Data = mtcars
 plot(x = car_Data$disp, y = car_Data$mpg)
-
 #notice we can remove arguments and still get same result
 plot(car_Data$disp, car_Data$mpg)</code></pre>
-<p><img src="working_with_data_files/figure-html/unnamed-chunk-9-1.png" width="768" /> <br><br></p>
+<p><img src="working_with_data_files/figure-html/unnamed-chunk-9-1.png" width="768" /></p>
 <p>Whilst this plot is useful, it is quite basic. We make the plot more informative by specifying extra features that we want when we call the plot function. We can add labels, titles, lines of best fit and more.</p>
 <pre class="r"><code>plot(x = car_Data$disp, y = car_Data$mpg, 
-     type = &quot;b&quot;, 
+     type = &quot;p&quot;, 
      xlab = &quot;Displacement&quot;, 
      ylab = &quot;Miles per Gallon&quot;,
      main = &quot;MPG vs Engine Displacement&quot;)</code></pre>
-<p><img src="working_with_data_files/figure-html/unnamed-chunk-10-1.png" width="768" /> <br><br></p>
-<p>Sometimes we may just want to see how the distribution of the data is for a single variable. For numerical variables this is done easily by using plotting a histogram. To plot a histogram in R we use the command <em>hist</em>.</p>
+<p><img src="working_with_data_files/figure-html/unnamed-chunk-10-1.png" width="768" /></p>
+<p>Sometimes we may just want to see the distribution of a single variable in the data. For numerical variables this is done easily by using plotting a histogram. To plot a histogram in R we use the command <em>hist</em>.</p>
 <pre class="r"><code>hist1 &lt;- hist(car_Data$mpg)</code></pre>
 <p><img src="working_with_data_files/figure-html/unnamed-chunk-11-1.png" width="768" /></p>
 <pre class="r"><code>#We can alter the &#39;bins&#39; by specifying the additional argument &#39;breaks = &#39; in the hist function
 hist(car_Data$mpg, breaks = c(10,12.5,15,17.5,20,22.5,25,27.5,30,32.5,35))
-
 #a neater way of doing the same as above is to use seq
 hist(car_Data$mpg, breaks = seq(10,35, by = 2.5))</code></pre>
 <p><img src="working_with_data_files/figure-html/unnamed-chunk-11-2.png" width="768" /></p>
@@ -513,8 +565,64 @@ hist(car_Data$mpg,
      breaks = seq(10,35, by = 2.5),
      xlab = &quot;Miles per gallon&quot;,
      main = &quot;Histogram of Miles per Gallon&quot;)</code></pre>
-<p><img src="working_with_data_files/figure-html/unnamed-chunk-11-3.png" width="768" /> <br><br></p>
+<p><img src="working_with_data_files/figure-html/unnamed-chunk-11-3.png" width="768" /></p>
+<p><strong>Excercises</strong></p>
+<p>Exercise 1</p>
+<ol style="list-style-type: decimal">
+<li><p>Load the iris dataset from base R into an object called flowerData by running the code ‘flowerData &lt;- iris’</p></li>
+<li><p>Output the first 10 rows of the data</p></li>
+</ol>
+<p>3 What class of object does each variable belong to?</p>
+<p>3 Plot a seperate histogram of the sepal length for each species. Add a title and labels to each so that you know which is which.</p>
+<p>4 Do you see any large differences between the distributions? (Try changing the ‘breaks’ argument to see if this makes things clearer)</p>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Sepal.Length"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["Sepal.Width"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Petal.Length"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Petal.Width"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Species"],"name":[5],"type":["fctr"],"align":["left"]}],"data":[{"1":"5.1","2":"3.5","3":"1.4","4":"0.2","5":"setosa","_rn_":"1"},{"1":"4.9","2":"3.0","3":"1.4","4":"0.2","5":"setosa","_rn_":"2"},{"1":"4.7","2":"3.2","3":"1.3","4":"0.2","5":"setosa","_rn_":"3"},{"1":"4.6","2":"3.1","3":"1.5","4":"0.2","5":"setosa","_rn_":"4"},{"1":"5.0","2":"3.6","3":"1.4","4":"0.2","5":"setosa","_rn_":"5"},{"1":"5.4","2":"3.9","3":"1.7","4":"0.4","5":"setosa","_rn_":"6"},{"1":"4.6","2":"3.4","3":"1.4","4":"0.3","5":"setosa","_rn_":"7"},{"1":"5.0","2":"3.4","3":"1.5","4":"0.2","5":"setosa","_rn_":"8"},{"1":"4.4","2":"2.9","3":"1.4","4":"0.2","5":"setosa","_rn_":"9"},{"1":"4.9","2":"3.1","3":"1.5","4":"0.1","5":"setosa","_rn_":"10"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
 </div>
+<pre><code>## &#39;data.frame&#39;:    150 obs. of  5 variables:
+##  $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...
+##  $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...
+##  $ Petal.Length: num  1.4 1.4 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 ...
+##  $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...
+##  $ Species     : Factor w/ 3 levels &quot;setosa&quot;,&quot;versicolor&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
+<p><img src="working_with_data_files/figure-html/unnamed-chunk-12-1.png" width="672" /><img src="working_with_data_files/figure-html/unnamed-chunk-12-2.png" width="672" /><img src="working_with_data_files/figure-html/unnamed-chunk-12-3.png" width="672" /><img src="working_with_data_files/figure-html/unnamed-chunk-12-4.png" width="672" /><img src="working_with_data_files/figure-html/unnamed-chunk-12-5.png" width="672" /><img src="working_with_data_files/figure-html/unnamed-chunk-12-6.png" width="672" /></p>
+</div>
+<div id="troubleshooting-in-r" class="section level3">
+<h3>Troubleshooting in R</h3>
+<div id="errors" class="section level4">
+<h4>Errors</h4>
+<p>When doing any sort of programming work, things often don’t perfectly on the first try. Unfortunately, making mistakes and learning from them is an important part of becomming a better programmer. The process of troubleshooting generally follows 4 main steps:</p>
+<ol style="list-style-type: decimal">
+<li><p>Read the error message. Sometimes it will be obvious what the error is from the message itself allowing you to quickly go back to your code and correct it.</p></li>
+<li><p>Read the R documentation. If the error has arisen whilst using a particular function or package then the documentation for those functions and packages will often have all the answers you need to solve your issue. Reading help files (which can be found using help(###) or ?###) is an importnant part of gaining a better understanding of R so don’t skip this step, however tempting it is.</p></li>
+<li><p>Go on the internet. There are many useful places on the internet to get help with any issues you encounter. Copying the error message into a google search will often reveal that someone else has had the same issue as yourself, and more often than not there will be myriad solutions for you to implement from other helpful R users. StackOverflow is a particularly useful place to go looking for help.</p></li>
+<li><p>Ask for help directly. If no solutions for your issue (or one that is similar enough for you to work out how to solve it on your own) have been found then you can ask directly to places like StackOverflow for help. Bear in mind that you will need to create a simpler version of your code with just enough in it to re-create the error. People wont read thorugh thousadns of lines to help sort your error!</p></li>
+</ol>
+<p>More detail on these steps can be found at <a href="http://rpubs.com/Altruimetavasi/Troubleshooting-in-R">link</a> and there are many other resources online that can help for any issues that you might encounter.</p>
+<pre class="r"><code>hist(car_Data$Mpg)
+hist(as.factor(car_Data$cyl))</code></pre>
+</div>
+<div id="advice-for-r-skill-building" class="section level4">
+<h4>Advice for R skill building</h4>
+<p>Naturally at some point you will be faced with the challenge of doing something in R that you have have not done before, and so is outside your current skill level. The process for learning this new capability is very similar to that of trouble shooting:</p>
+<ol style="list-style-type: decimal">
+<li><p>First, ask can you use the functions and packages that you have already in your R reportoire to solve the issue? Trying to solve your issue this way first will deepen your understanding the capabilites of R and each package and function within it. This step will likely involve lost of reading of R documentation, so don’t be tempted to skip this step!</p></li>
+<li><p>If you have tried this but you are just getting errors then go through stages 1 and 2 of the troubleshooting procedures outlined above.</p></li>
+<li><p>If doing steps 1 and 2 still has not brought you any success, then it’s time to go searching the internet for help. A quick google search of what you want to do will often reveal multiple ways to do whatever it is your trying, and again places like stack overflow are very helpful for this.</p></li>
+</ol>
+<p>It is tempting to skip straight to step three at times (and we would be lying if we said we didn’t sometimes do it ourselves) but it’s better to resist. Doing steps 1 and 2 will allow you to work out which of the solutions available online is best for you, and the greater understanding you develop by taking this longer route will make you a better programmer in the long run, as you are more likely to understand the solutions given to you online. Overall this will open up the pathway to speedier problem solving in your code. Copying coded solutions off the internet to put in your work without understanding the limitations of your attempts or the how the solutions work may produce immediate results but at the sacrifice of your development as a programmer.</p>
+</div>
+</div>
+</div>
+<div id="further-learning" class="section level2">
+<h2>Further learning</h2>
+<p>We hope to see you again on further courses with us at ScHARR. However, alternative resources are available:</p>
+<ul>
+<li><p><strong><a href="https://r4ds.had.co.nz/">R for Data Science</a></strong> is a good place to recap the materials taught in this course. The hard copy of Hadley Wickham and Garrett Grolemund’s book of the same name (and content) is available on <strong><a href="https://r4ds.had.co.nz/">amazon</a></strong></p></li>
+<li><p>An R user guide is available on the CRAN R-Project website <strong><a href="https://cran.r-project.org/doc/manuals/r-release/R-intro.html">here</a></strong>, although the author finds this less easy to follow than Hadley Wickham’s book described above.</p></li>
+</ul>
+<p>Also, you can learn R in R with <a href="https://swirlstats.com/">swirl</a>. Swirl has a range of short courses (approx 30mins) which are undertaken in R. You can download swirl by typing <strong>install.packages(“swirl”)</strong> into R. Once installed loading swirl from the library with <strong>library(swirl)</strong> and then following instructions within R.</p>
 </div>
 
 

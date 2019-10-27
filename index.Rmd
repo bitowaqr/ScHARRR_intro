@@ -49,7 +49,7 @@ All of the tutors on the course are PhD candidates in the Wellcome Trust Doctora
  </tr>
  
  <tr>
-    <td width= 160px><img src="./img/amy.jpg" alt="image"><br><br> </td>
+    <td width= 160px><img src="./img/amy.png" alt="image"><br><br> </td>
     <td><a href="https://www.sheffield.ac.uk/scharr/staff-pgrs/studentprofiles/amychang" target="_blank">Amy Chang</a> joined ScHARR in 2018. Prior to joining ScHARR she worked at the Centre for Drug Evaluation (HTA body) in Taiwan. Her research interests lie in health economic modelling with an emphasis on evaluating health interventions and better understanding the effect of intervention timing using evidence generated from real-world data. Amy has previously used R for, among other things, survival analysis and large scale data scraping.
  </tr>
  
