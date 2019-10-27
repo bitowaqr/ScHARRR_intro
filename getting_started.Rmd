@@ -119,7 +119,7 @@ a-b
 
 ```
 
-### Seeing our Objects
+# Seeing our Objects
 Sometimes we have so many objects we can't see them in the environment.
 ```{r,echo=TRUE}
 # prints the objects in the environment

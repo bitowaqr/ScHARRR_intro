@@ -456,8 +456,9 @@ b &lt;- a - 5
 a &lt;- a - 5
 a-b</code></pre>
 <pre><code>## [1] 0</code></pre>
-<div id="seeing-our-objects" class="section level3">
-<h3><span class="header-section-number">5.0.1</span> Seeing our Objects</h3>
+</div>
+<div id="seeing-our-objects" class="section level1">
+<h1><span class="header-section-number">6</span> Seeing our Objects</h1>
 <p>Sometimes we have so many objects we can’t see them in the environment.</p>
 <pre class="r"><code># prints the objects in the environment
 ls()</code></pre>
@@ -470,9 +471,8 @@ rm(x,y)
 # remove all objects
 rm(list=ls())</code></pre>
 <p><br><br></p>
-</div>
 <div id="exercises" class="section level2">
-<h2><span class="header-section-number">5.1</span> <em>Exercises</em></h2>
+<h2><span class="header-section-number">6.1</span> <em>Exercises</em></h2>
 <pre class="excc excc"><code>  1) Create an object d equal to 10. Divide d by 5. Multiply d by 8. Add 8 to d. what is d?  
   2) Create an object m equal to 7. Overwrite m with m = m times 10. Create an object p equal to 2. Overwrite p with p = p times 12. Create an object w equal to m divided by p. What values do m, p and w take? </code></pre>
 <details>
@@ -495,7 +495,7 @@ w &lt;- m/p</code></pre>
 </div>
 </div>
 <div id="evaluations" class="section level1">
-<h1><span class="header-section-number">6</span> Evaluations</h1>
+<h1><span class="header-section-number">7</span> Evaluations</h1>
 <p>We can perform evaluations, which provide a true or false answer. For example the input <code>4&gt;2</code> returns <code>FALSE</code>.</p>
 <p>It can be very useful in cases where an outcome is binary (e.g. an individual dies or remains alive). Or where we want to change a continuous variable to a binary.</p>
 <pre class="r"><code>## simple evaluations
@@ -522,7 +522,7 @@ b</code></pre>
 <pre><code>## [1] FALSE</code></pre>
 <p><br><br></p>
 <div id="exercises-1" class="section level2">
-<h2><span class="header-section-number">6.1</span> <em>Exercises</em></h2>
+<h2><span class="header-section-number">7.1</span> <em>Exercises</em></h2>
 <p>Use R to answer the following questions for you:</p>
 <pre class="excc excc"><code>1) Is 6.2 greater than 1.6^4?  
 2) Is 7.5 equal to 137.25/18.?  
@@ -541,12 +541,12 @@ m/q &gt;=  0.0152
 </div>
 </div>
 <div id="object-classes-and-types" class="section level1">
-<h1><span class="header-section-number">7</span> Object classes and types</h1>
+<h1><span class="header-section-number">8</span> Object classes and types</h1>
 <p>So far we have mostly been working with objects of a single numeric value. However, objects don’t have to take a single value, for example an object could be a vector of the heights of each child in a group of children.</p>
 <p>We have mostly been working with numeric values (vectors of one). As we have already seen, objects don’t have to be numeric. To illustrate the different classes we are going to create some vectors of different classes which we will then join together later to make a dataframe.</p>
 </div>
 <div id="object-classes" class="section level1">
-<h1><span class="header-section-number">8</span> Object Classes</h1>
+<h1><span class="header-section-number">9</span> Object Classes</h1>
 <p>Different classes include: numeric, character, factor, logical, integer &amp; complex (ignore). We can create a vector using the function c() which concatenates objects. We can type ?c() to ensure we understand what c() does. Typing ?function gives us the help file for any function.</p>
 <pre class="r"><code>## numeric
 height &lt;- c(1.38,1.45,1.21,1.56)
@@ -572,7 +572,7 @@ tall &lt;- height &gt; 1.5</code></pre>
 <p><br><br></p>
 </div>
 <div id="operations-on-different-data-structures" class="section level1">
-<h1><span class="header-section-number">9</span> Operations on different data structures</h1>
+<h1><span class="header-section-number">10</span> Operations on different data structures</h1>
 <p>We can perform operations on the different objects with different structures, lengths, classes etc. It is important to know what can be done to objects.</p>
 <pre class="r"><code># Adding:
 c(1,2,3) + 1</code></pre>
@@ -591,7 +591,7 @@ c(height,weight,first_name)</code></pre>
 ##  [9] &quot;Alice&quot; &quot;Bob&quot;   &quot;Harry&quot; &quot;Jane&quot;</code></pre>
 <p><br><br></p>
 <div id="exercises-2" class="section level2">
-<h2><span class="header-section-number">9.1</span> <em>Exercises</em></h2>
+<h2><span class="header-section-number">10.1</span> <em>Exercises</em></h2>
 <pre class="excc excc"><code>1) Create a vector called &#39;odds&#39; with the numbers 1,3,5,7,9. Show what class odds is. 
 
 2) Evaluate which numbers in the odds vector are greater than 4. 
@@ -616,7 +616,7 @@ c(height,weight,first_name)</code></pre>
 </div>
 </div>
 <div id="basic-object-types" class="section level1">
-<h1><span class="header-section-number">10</span> Basic object Types</h1>
+<h1><span class="header-section-number">11</span> Basic object Types</h1>
 <p>There are multiple types of object in R. We can store objects together in a data-frame. In our example data-frame each column is a variable (height, weight, first_name), and each row is an individual.</p>
 <p>Different object types include:</p>
 <ul>
@@ -660,7 +660,7 @@ m.df &lt;- as.matrix(df)
 <p><br><br></p>
 </div>
 <div id="subsetting" class="section level1">
-<h1><span class="header-section-number">11</span> Subsetting</h1>
+<h1><span class="header-section-number">12</span> Subsetting</h1>
 <p>We can subset our data, to reduce it to those we are interested in. This is useful when cleaning our data, and when changing a continuous variable to a categorical.</p>
 <pre class="r"><code>## Our data-frame contains the height, weight, first name and bmi of 4 individuals.
 df</code></pre>
@@ -722,7 +722,7 @@ df[smaller,]</code></pre>
 ## 4   1.56     40       Jane   F 16.43655</code></pre>
 <p>Note that there are other more advanced methods, which uses pipes and require less code (these are covered in more advanced courses). <br><br></p>
 <div id="exercises-3" class="section level2">
-<h2><span class="header-section-number">11.1</span> <em>Exercises</em></h2>
+<h2><span class="header-section-number">12.1</span> <em>Exercises</em></h2>
 <pre class="excc excc"><code>1. Select the 3rd row from the data frame
 
 2. Select the weight variable from the data frame using your prefered method
@@ -749,7 +749,7 @@ df[smaller,]</code></pre>
 </div>
 </div>
 <div id="independent-exercises" class="section level1">
-<h1><span class="header-section-number">12</span> Independent exercises</h1>
+<h1><span class="header-section-number">13</span> Independent exercises</h1>
 <p>Exercises</p>
 <p><strong>Exercise 1</strong></p>
 <p>Calculate the following:</p>
