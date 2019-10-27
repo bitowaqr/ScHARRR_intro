@@ -45,8 +45,14 @@ All of the tutors on the course are PhD candidates in the Wellcome Trust Doctora
  
  <tr>
     <td width= 160px><img src="./img/naomi.jpg" alt="image"><br><br> </td>
-    <td><a href="https://www.linkedin.com/in/robert-smith-53b28438/" target="_blank">Naomi Gibbs</a> Naomi is working on a health economic model to inform alcohol pricing policy options in South Africa. She is working closely with local stakeholders to conceptualise and validate the model. Naomi will be using R to create and communicate her modelling work and hopes to enable greater engagement from policy makers through interactive dashboards.<br><br></td>
+    <td><a href="https://www.linkedin.com/in/robert-smith-53b28438/" target="_blank">Naomi Gibbs</a> is working on a health economic model to inform alcohol pricing policy options in South Africa. She is working closely with local stakeholders to conceptualise and validate the model. Naomi will be using R to create and communicate her modelling work and hopes to enable greater engagement from policy makers through interactive dashboards.<br><br></td>
  </tr>
+ 
+ <tr>
+    <td width= 160px><img src="./img/amy.jpg" alt="image"><br><br> </td>
+    <td><a href="" target="_blank">Amy Chang</a> joined ScHARR in 2018. Prior to joining ScHARR she worked at the Centre for Drug Evaluation (HTA body) in Taiwan. Her research interests lie in health economic modelling with an emphasis on evaluating health interventions and better understanding the effect of intervention timing using evidence generated from real-world data. Amy has previously used R for, among other things, survival analysis and large scale data scraping.
+ </tr>
+ 
 </table>
 
 <br><br>
@@ -54,19 +60,21 @@ All of the tutors on the course are PhD candidates in the Wellcome Trust Doctora
 
 ## Our series of Short Courses in R.
 
-We have put together content for a series of short courses in R. These  courses are designed to provide the user with the necessary skills to utilise R to answer questions using data. By the end of the series a user should be able to manage data efficiently, analyse relationships between variables and display this in aesthetically pleasing graphs, run simulations, feed back on methods and create apps to facilitate the decision making process. The objective is to give the user an understanding of what is possible, and the foundation on which to achieve it.
+Below is a list of our planned short courses in R. 
 
 <br>
 
-### <a href="Course_1_PS.html">Course 1 - Intro to R</a> <br />
+### <a href="getting_started.html">Course 1 - Intro to R</a> <br />
 
 By the end of the 1 day short course, the attendee should be able to:
 
-* Install and navigate R Studio. Set working directory.
+
+* Install and navigate R Studio. 
+* Set the working directory.
 * Understand the types of objects and basic operations in R.
 * Read in data from csv and excel files.
 * Summarise data. 
-* Know where to find further information (StatsExchange/Google).
+* Know where to find further information.
 
 <br><br>
 

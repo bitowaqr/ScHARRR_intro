@@ -29,18 +29,21 @@ background-color: lightblue;
 
 # Install and navigate R Studio.
 
-R is a free software environment for statistical analysis and data science. It is a collaborative effort started by Robert Gentleman and Ross Ihaka in New Zealand, but now made up of hundreds of people. R is made freely available by the Comprehensive R archive Network (CRAN), in the UK it can be downloaded through the University of Bristol [here](https://www.stats.bris.ac.uk/R/). 
+R is a free software environment for statistical analysis and data science. It is a collaborative effort started by Robert Gentleman and Ross Ihaka in New Zealand, but now made up of hundreds of people. R is made freely available by the Comprehensive R archive Network (CRAN), in the UK it can be downloaded through the University of Bristol *[here](https://www.stats.bris.ac.uk/R/)*.There are options of downloading R for Linux, Max and Windows.
 
-Downloading R gives you the basic software environment, but an incredibly popular add-on called 'RStudio' is required to follow this course. You should download the free 'RStudio Desktop Open Source Licence' version for the laptop you will be attending the course with from [RStudio.com](https://www.rstudio.com/products/rstudio/#Desktop).
+Downloading R gives you the basic software environment, but an incredibly popular add-on called 'RStudio' is required to follow this course. You should download the free 'RStudio Desktop Open Source Licence' version for the laptop you will be attending the course with from *[RStudio.com](https://www.rstudio.com/products/rstudio/#Desktop)*. If you have time before the course, it would be hugely beneficial to get familiar with RStudio.
 
-If you have time before the course, it would be hugely beneficial to get familiar with RStudio.
 
 **Objectives:**
 
 > Download R from <https://www.stats.bris.ac.uk/R/>.  
 > Download RStudio from <https://www.rstudio.com/products/rstudio/#Desktop>.
 
+
+If you found this guide useless. please follow this alternative guide *[here](https://www.dummies.com/education/math/statistics/download-r-rstudio/)* and let me know in the session that my guide sucks.
+
 <br><br>
+
 
 # Basics
 
@@ -76,18 +79,21 @@ Entering `1+1`, we get the output `[1] 2`. The output is `2`, but the `[1]` lets
 <br><br>
 
 # Objects
-It is possible to create objects, an object can take a number of forms (e.g. a number, a vector of numbers, a matrix, a data-frame). We can then use these objects going forward rather than the values directly. Operations can be applied to these objects, and objects can be over-written. R is basically just objects and functions.
+R is object orientated, which bascially means when we work in R we are generally writing code to make changes to an object (e.g. a dataset), based on other objects. An object can take a number of forms (e.g. a number, a vector of numbers, a matrix, a data-frame). We can then use these objects going forward rather than the values directly. Operations can be applied to these objects, and objects can be over-written. If you understand how to manipulate objects you are most of the way there.
 
 ```{r,echo=TRUE}
 
-## objects basics
+# create an object x which is 3
 x <-  3
+# create an object y which is 5
 y <-  5
+# add x and y
 x + y
- 
+# overwrite x so it now equals 4.
 x <-  4
+# add x and y again, now the result is 9, not 7.
 x + y
-  
+# create another object z which is equal to x + y at this time. 
 z <- x + y
 z
 
@@ -96,15 +102,39 @@ z
 
 # Manipulating Objects
 
-```{r,echo=TRUE}
+We can overwrite our objects. But be careful, just because we overwrite something doesn't mean other objects created in the code before update.
 
- 
+```{r,echo=TRUE}
+# create an object a which is 10.
 a <- 10
 a
-
+# add one to a. A is now 11.
 a <- a + 1 
 a 
 
+# create an object called b which is 5 more than a
+b <- a - 5
+a <- a - 5
+a-b
+
+```
+
+### Seeing our Objects
+Sometimes we have so many objects we can't see them in the environment.
+```{r,echo=TRUE}
+# prints the objects in the environment
+ls()
+```
+
+
+```{r,echo=TRUE}
+### Removing Objects
+# sometimes we may want to remove an object.
+rm(a)
+# multiple objects at once
+rm(x,y)
+# remove all objects
+rm(list=ls())
 ```
 
 <br><br>
@@ -112,20 +142,23 @@ a
 ## *Exercises*
 
 ```{excc, class.source="excc"}
-  1. Set d equal to 10.
-  2. divide d by 5
-  3. multiply d by 8
-  4. add 8 to d 
-  5. what is d?
+  1) Create an object d equal to 10. Divide d by 5. Multiply d by 8. Add 8 to d. what is d?  
+  2) Create an object m equal to 7. Overwrite m with m = m times 10. Create an object p equal to 2. Overwrite p with p = p times 12. Create an object w equal to m divided by p. What values do m, p and w take? 
 ```
 
 <details><summary>Show solution</summary><p>
 ```
-  1. d = 10
-  2. d = d / 5
-  3. d = d * 8
-  4. d = d + 8
-  5. 24
+  # create an object a which is 10.
+d <- 10 
+d <- d/5
+d <- d*8
+d <- d+8
+d
+m <- 7
+m <- m*10 
+p <- 2
+p <- p*12
+w <- m/p
 ```
 </p></details>
 
@@ -157,21 +190,43 @@ b
 ```
 <br><br>
 
-# Object classes and types
-Objects don't have to take a single value. For example a single object may be the heights of each child in a group of children (in the example below a small class of 4).
 
-We have been working with single values, which are vectors of 1. To illustrate the different classes we are going to create some vectors which we will then join together later to make a dataframe.
+## *Exercises*
+
+Use R to answer the following questions for you:  
+```{excc, class.source="excc"}
+1) Is 6.2 greater than 1.6^4?  
+2) Is 7.5 equal to 137.25/18.?  
+3) m = 84 / 106, q = 156/3, is m/q greater than, equal to or less than  0.0152
+```
+
+<details><summary>Show solution</summary><p>
+```
+6.2 > 1.6^4
+7.5 == to 137.25/18  
+m = 84 / 106 
+q = 156/3 
+m/q >=  0.0152
+  
+```
+</p></details>
+
+
+# Object classes and types
+So far we have mostly been working with objects of a single numeric value. However, objects don't have to take a single value, for example an object could be a vector of the heights of each child in a group of children.
+
+We have mostly been working with numeric values (vectors of one). As we have already seen, objects don't have to be numeric. To illustrate the different classes we are going to create some vectors of different classes which we will then join together later to make a dataframe.
 
 # Object Classes
-Different class include numeric, character, logical, integer & complex (ignore).
+Different classes include: numeric, character, factor, logical, integer & complex (ignore). We can create a vector using the function c() which concatenates objects. We can type ?c() to ensure we understand what c() does. Typing ?function gives us the help file for any function.
 ```{r,echo=TRUE}
 
 ## numeric
-height <- c(1.72,1.78,1.65,1.90) 
+height <- c(1.38,1.45,1.21,1.56)
 height
 
 ## numeric
-weight <- c(68,75,55,79)
+weight <- c(31,35,28,40)
 weight
 class(weight)
 
@@ -185,11 +240,12 @@ sex <- factor(x = c("F","M","M","F"))
 sex
 
 ## logical
-tall <- height > 1.8
+tall <- height > 1.5
 ```
 <br><br>
 
-# Operations on Vectors
+# Operations on different data structures
+We can perform operations on the different objects with different structures, lengths, classes etc. It is important to know what can be done to objects.
 
 ```{r, echo=TRUE}
 # Adding:
@@ -200,15 +256,19 @@ c(1,2,3) + c(1,2,3)
 # multiplication
 heightft <- height*3.28
 
+# concatenating
+c(height,weight)
+# concatenating to string
+c(height,weight,first_name)
+
 ```
 <br><br>
 
 ## *Exercises*
 ```{excc, class.source="excc"}
-1. Create a vector called 'odds' with the numbers 1,3,5,7,9.
-2. Show what class odds is. 
+1) Create a vector called 'odds' with the numbers 1,3,5,7,9. Show what class odds is. 
 
-3. Evaluate which numbers in the odd vector are greater than 4. 
+2) Evaluate which numbers in the odds vector are greater than 4. 
 
 4. Create a vector called 'fail' containing 1,3,5,'seven',9.
 5. Show what class fail is.
@@ -238,10 +298,10 @@ There are multiple types of object in R. We can store objects together in a data
 
 Different object types include:
 
-* Vector - single variable a 1x1 vector. Vector all elements same data-type. 
-* Matrix - all same data-type.
-* Dataframe - columns same data type.
-* List - anything goes.
+* Vector - single variable is a 1x1 vector. All elements are the same class.
+* Matrix - all elements are the same class.  
+* Dataframe - columns are vectors of the same class. Rows are lists.
+* List - anything goes. We will ignore these for now.
 
 ```{r,echo=TRUE}
 
@@ -255,6 +315,15 @@ df$height
 ## We can add a new variable easily, in this case based on other variables within the dataframe.
 df$bmi <- df$weight / df$height^2 
 df
+
+# We can also select row and columns using row/column numbers, e.g. row1
+df[1,]
+# column 3
+df[,3]
+# matrices can't have different classes, everything forced to character.
+m.df <- as.matrix(df)
+# therefore can't multiply
+# m.df[,"height"]*100
 ```
 <br><br>
 
@@ -276,7 +345,7 @@ df[,c(1,3)]
 #selecting a row(s)
 df[1,]
 
-#We might also want to select observations (rows) based on characteristics of the data
+#We might also want to select observations (rows) based on the characteristics of the data
 #E.g. we might want to only look at the data for people who are taller than 1.75m
 
 #create a logical variable called min_height which contains T/F for each individual being over 175cm.
@@ -328,7 +397,8 @@ Note that there are other more advanced methods, which uses pipes and require le
 **** 
 <br>
 
-# Exercises
+# Independent exercises
+Exercises
 
 **Exercise 1**
 
@@ -367,7 +437,7 @@ d) Can you create a matrix with numbers and characters.
 What happens if you try to use the ages?
 
 <br>
-e) Create a dataframe for five individuals (Andrew, Betty, Carl, Diane and Elisa) who are aged (62,80,24,40,56) and have gender (male, female, male,female, female). 
+e) Create a dataframe for five individuals (Andrew, Betty, Carl, Diane and Elisa) who are aged (62,80,24,40,56) and have gender (male, female, male, female, female). 
 
 <br>
 f) Use evaluations and subsetting to find the characteristics of the individual who can claim their free bus pass (age 65+).

@@ -384,14 +384,14 @@ background-color: lightblue;
 <!-- Course 1 - Introduction to R {.tabset}-->
 <div id="install-and-navigate-r-studio." class="section level1">
 <h1><span class="header-section-number">1</span> Install and navigate R Studio.</h1>
-<p>R is a free software environment for statistical analysis and data science. It is a collaborative effort started by Robert Gentleman and Ross Ihaka in New Zealand, but now made up of hundreds of people. R is made freely available by the Comprehensive R archive Network (CRAN), in the UK it can be downloaded through the University of Bristol <a href="https://www.stats.bris.ac.uk/R/">here</a>.</p>
-<p>Downloading R gives you the basic software environment, but an incredibly popular add-on called ‘RStudio’ is required to follow this course. You should download the free ‘RStudio Desktop Open Source Licence’ version for the laptop you will be attending the course with from <a href="https://www.rstudio.com/products/rstudio/#Desktop">RStudio.com</a>.</p>
-<p>If you have time before the course, it would be hugely beneficial to get familiar with RStudio.</p>
+<p>R is a free software environment for statistical analysis and data science. It is a collaborative effort started by Robert Gentleman and Ross Ihaka in New Zealand, but now made up of hundreds of people. R is made freely available by the Comprehensive R archive Network (CRAN), in the UK it can be downloaded through the University of Bristol <em><a href="https://www.stats.bris.ac.uk/R/">here</a></em>.There are options of downloading R for Linux, Max and Windows.</p>
+<p>Downloading R gives you the basic software environment, but an incredibly popular add-on called ‘RStudio’ is required to follow this course. You should download the free ‘RStudio Desktop Open Source Licence’ version for the laptop you will be attending the course with from <em><a href="https://www.rstudio.com/products/rstudio/#Desktop">RStudio.com</a></em>. If you have time before the course, it would be hugely beneficial to get familiar with RStudio.</p>
 <p><strong>Objectives:</strong></p>
 <blockquote>
 <p>Download R from <a href="https://www.stats.bris.ac.uk/R/" class="uri">https://www.stats.bris.ac.uk/R/</a>.<br />
 Download RStudio from <a href="https://www.rstudio.com/products/rstudio/#Desktop" class="uri">https://www.rstudio.com/products/rstudio/#Desktop</a>.</p>
 </blockquote>
+<p>If you found this guide useless. please follow this alternative guide <em><a href="https://www.dummies.com/education/math/statistics/download-r-rstudio/">here</a></em> and let me know in the session that my guide sucks.</p>
 <p><br><br></p>
 </div>
 <div id="basics" class="section level1">
@@ -421,44 +421,74 @@ Download RStudio from <a href="https://www.rstudio.com/products/rstudio/#Desktop
 </div>
 <div id="objects" class="section level1">
 <h1><span class="header-section-number">4</span> Objects</h1>
-<p>It is possible to create objects, an object can take a number of forms (e.g. a number, a vector of numbers, a matrix, a data-frame). We can then use these objects going forward rather than the values directly. Operations can be applied to these objects, and objects can be over-written. R is basically just objects and functions.</p>
-<pre class="r"><code>## objects basics
+<p>R is object orientated, which bascially means when we work in R we are generally writing code to make changes to an object (e.g. a dataset), based on other objects. An object can take a number of forms (e.g. a number, a vector of numbers, a matrix, a data-frame). We can then use these objects going forward rather than the values directly. Operations can be applied to these objects, and objects can be over-written. If you understand how to manipulate objects you are most of the way there.</p>
+<pre class="r"><code># create an object x which is 3
 x &lt;-  3
+# create an object y which is 5
 y &lt;-  5
+# add x and y
 x + y</code></pre>
 <pre><code>## [1] 8</code></pre>
-<pre class="r"><code>x &lt;-  4
+<pre class="r"><code># overwrite x so it now equals 4.
+x &lt;-  4
+# add x and y again, now the result is 9, not 7.
 x + y</code></pre>
 <pre><code>## [1] 9</code></pre>
-<pre class="r"><code>z &lt;- x + y
+<pre class="r"><code># create another object z which is equal to x + y at this time. 
+z &lt;- x + y
 z</code></pre>
 <pre><code>## [1] 9</code></pre>
 <p><br><br></p>
 </div>
 <div id="manipulating-objects" class="section level1">
 <h1><span class="header-section-number">5</span> Manipulating Objects</h1>
-<pre class="r"><code>a &lt;- 10
+<p>We can overwrite our objects. But be careful, just because we overwrite something doesn’t mean other objects created in the code before update.</p>
+<pre class="r"><code># create an object a which is 10.
+a &lt;- 10
 a</code></pre>
 <pre><code>## [1] 10</code></pre>
-<pre class="r"><code>a &lt;- a + 1 
+<pre class="r"><code># add one to a. A is now 11.
+a &lt;- a + 1 
 a </code></pre>
 <pre><code>## [1] 11</code></pre>
+<pre class="r"><code># create an object called b which is 5 more than a
+b &lt;- a - 5
+a &lt;- a - 5
+a-b</code></pre>
+<pre><code>## [1] 0</code></pre>
+<div id="seeing-our-objects" class="section level3">
+<h3><span class="header-section-number">5.0.1</span> Seeing our Objects</h3>
+<p>Sometimes we have so many objects we can’t see them in the environment.</p>
+<pre class="r"><code># prints the objects in the environment
+ls()</code></pre>
+<pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;x&quot; &quot;y&quot; &quot;z&quot;</code></pre>
+<pre class="r"><code>### Removing Objects
+# sometimes we may want to remove an object.
+rm(a)
+# multiple objects at once
+rm(x,y)
+# remove all objects
+rm(list=ls())</code></pre>
 <p><br><br></p>
+</div>
 <div id="exercises" class="section level2">
 <h2><span class="header-section-number">5.1</span> <em>Exercises</em></h2>
-<pre class="excc excc"><code>  1. Set d equal to 10.
-  2. divide d by 5
-  3. multiply d by 8
-  4. add 8 to d 
-  5. what is d?</code></pre>
+<pre class="excc excc"><code>  1) Create an object d equal to 10. Divide d by 5. Multiply d by 8. Add 8 to d. what is d?  
+  2) Create an object m equal to 7. Overwrite m with m = m times 10. Create an object p equal to 2. Overwrite p with p = p times 12. Create an object w equal to m divided by p. What values do m, p and w take? </code></pre>
 <details>
 <summary>Show solution</summary>
 <p>
-<pre><code>  1. d = 10
-  2. d = d / 5
-  3. d = d * 8
-  4. d = d + 8
-  5. 24</code></pre>
+<pre><code>  # create an object a which is 10.
+d &lt;- 10 
+d &lt;- d/5
+d &lt;- d*8
+d &lt;- d+8
+d
+m &lt;- 7
+m &lt;- m*10 
+p &lt;- 2
+p &lt;- p*12
+w &lt;- m/p</code></pre>
 </p>
 </details>
 <p><br><br></p>
@@ -491,23 +521,41 @@ b &lt;- 4&lt;2
 b</code></pre>
 <pre><code>## [1] FALSE</code></pre>
 <p><br><br></p>
+<div id="exercises-1" class="section level2">
+<h2><span class="header-section-number">6.1</span> <em>Exercises</em></h2>
+<p>Use R to answer the following questions for you:</p>
+<pre class="excc excc"><code>1) Is 6.2 greater than 1.6^4?  
+2) Is 7.5 equal to 137.25/18.?  
+3) m = 84 / 106, q = 156/3, is m/q greater than, equal to or less than  0.0152</code></pre>
+<details>
+<summary>Show solution</summary>
+<p>
+<pre><code>6.2 &gt; 1.6^4
+7.5 == to 137.25/18  
+m = 84 / 106 
+q = 156/3 
+m/q &gt;=  0.0152
+  </code></pre>
+</p>
+</details>
+</div>
 </div>
 <div id="object-classes-and-types" class="section level1">
 <h1><span class="header-section-number">7</span> Object classes and types</h1>
-<p>Objects don’t have to take a single value. For example a single object may be the heights of each child in a group of children (in the example below a small class of 4).</p>
-<p>We have been working with single values, which are vectors of 1. To illustrate the different classes we are going to create some vectors which we will then join together later to make a dataframe.</p>
+<p>So far we have mostly been working with objects of a single numeric value. However, objects don’t have to take a single value, for example an object could be a vector of the heights of each child in a group of children.</p>
+<p>We have mostly been working with numeric values (vectors of one). As we have already seen, objects don’t have to be numeric. To illustrate the different classes we are going to create some vectors of different classes which we will then join together later to make a dataframe.</p>
 </div>
 <div id="object-classes" class="section level1">
 <h1><span class="header-section-number">8</span> Object Classes</h1>
-<p>Different class include numeric, character, logical, integer &amp; complex (ignore).</p>
+<p>Different classes include: numeric, character, factor, logical, integer &amp; complex (ignore). We can create a vector using the function c() which concatenates objects. We can type ?c() to ensure we understand what c() does. Typing ?function gives us the help file for any function.</p>
 <pre class="r"><code>## numeric
-height &lt;- c(1.72,1.78,1.65,1.90) 
+height &lt;- c(1.38,1.45,1.21,1.56)
 height</code></pre>
-<pre><code>## [1] 1.72 1.78 1.65 1.90</code></pre>
+<pre><code>## [1] 1.38 1.45 1.21 1.56</code></pre>
 <pre class="r"><code>## numeric
-weight &lt;- c(68,75,55,79)
+weight &lt;- c(31,35,28,40)
 weight</code></pre>
-<pre><code>## [1] 68 75 55 79</code></pre>
+<pre><code>## [1] 31 35 28 40</code></pre>
 <pre class="r"><code>class(weight)</code></pre>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
 <pre class="r"><code>## character
@@ -520,25 +568,33 @@ sex</code></pre>
 <pre><code>## [1] F M M F
 ## Levels: F M</code></pre>
 <pre class="r"><code>## logical
-tall &lt;- height &gt; 1.8</code></pre>
+tall &lt;- height &gt; 1.5</code></pre>
 <p><br><br></p>
 </div>
-<div id="operations-on-vectors" class="section level1">
-<h1><span class="header-section-number">9</span> Operations on Vectors</h1>
+<div id="operations-on-different-data-structures" class="section level1">
+<h1><span class="header-section-number">9</span> Operations on different data structures</h1>
+<p>We can perform operations on the different objects with different structures, lengths, classes etc. It is important to know what can be done to objects.</p>
 <pre class="r"><code># Adding:
 c(1,2,3) + 1</code></pre>
 <pre><code>## [1] 2 3 4</code></pre>
 <pre class="r"><code>c(1,2,3) + c(1,2,3)</code></pre>
 <pre><code>## [1] 2 4 6</code></pre>
 <pre class="r"><code># multiplication
-heightft &lt;- height*3.28</code></pre>
-<p><br><br></p>
-<div id="exercises-1" class="section level2">
-<h2><span class="header-section-number">9.1</span> <em>Exercises</em></h2>
-<pre class="excc excc"><code>1. Create a vector called &#39;odds&#39; with the numbers 1,3,5,7,9.
-2. Show what class odds is. 
+heightft &lt;- height*3.28
 
-3. Evaluate which numbers in the odd vector are greater than 4. 
+# concatenating
+c(height,weight)</code></pre>
+<pre><code>## [1]  1.38  1.45  1.21  1.56 31.00 35.00 28.00 40.00</code></pre>
+<pre class="r"><code># concatenating to string
+c(height,weight,first_name)</code></pre>
+<pre><code>##  [1] &quot;1.38&quot;  &quot;1.45&quot;  &quot;1.21&quot;  &quot;1.56&quot;  &quot;31&quot;    &quot;35&quot;    &quot;28&quot;    &quot;40&quot;   
+##  [9] &quot;Alice&quot; &quot;Bob&quot;   &quot;Harry&quot; &quot;Jane&quot;</code></pre>
+<p><br><br></p>
+<div id="exercises-2" class="section level2">
+<h2><span class="header-section-number">9.1</span> <em>Exercises</em></h2>
+<pre class="excc excc"><code>1) Create a vector called &#39;odds&#39; with the numbers 1,3,5,7,9. Show what class odds is. 
+
+2) Evaluate which numbers in the odds vector are greater than 4. 
 
 4. Create a vector called &#39;fail&#39; containing 1,3,5,&#39;seven&#39;,9.
 5. Show what class fail is.
@@ -564,30 +620,43 @@ heightft &lt;- height*3.28</code></pre>
 <p>There are multiple types of object in R. We can store objects together in a data-frame. In our example data-frame each column is a variable (height, weight, first_name), and each row is an individual.</p>
 <p>Different object types include:</p>
 <ul>
-<li>Vector - single variable a 1x1 vector. Vector all elements same data-type.</li>
-<li>Matrix - all same data-type.</li>
-<li>Dataframe - columns same data type.</li>
-<li>List - anything goes.</li>
+<li>Vector - single variable is a 1x1 vector. All elements are the same class.</li>
+<li>Matrix - all elements are the same class.<br />
+</li>
+<li>Dataframe - columns are vectors of the same class. Rows are lists.</li>
+<li>List - anything goes. We will ignore these for now.</li>
 </ul>
 <pre class="r"><code>## data frame- columns are variables, rows are observations.
 df &lt;- data.frame(height,weight,first_name,sex)
 df</code></pre>
 <pre><code>##   height weight first_name sex
-## 1   1.72     68      Alice   F
-## 2   1.78     75        Bob   M
-## 3   1.65     55      Harry   M
-## 4   1.90     79       Jane   F</code></pre>
+## 1   1.38     31      Alice   F
+## 2   1.45     35        Bob   M
+## 3   1.21     28      Harry   M
+## 4   1.56     40       Jane   F</code></pre>
 <pre class="r"><code>## we can select a single variable within the dataframe using the dollar sign.
 df$height</code></pre>
-<pre><code>## [1] 1.72 1.78 1.65 1.90</code></pre>
+<pre><code>## [1] 1.38 1.45 1.21 1.56</code></pre>
 <pre class="r"><code>## We can add a new variable easily, in this case based on other variables within the dataframe.
 df$bmi &lt;- df$weight / df$height^2 
 df</code></pre>
 <pre><code>##   height weight first_name sex      bmi
-## 1   1.72     68      Alice   F 22.98540
-## 2   1.78     75        Bob   M 23.67125
-## 3   1.65     55      Harry   M 20.20202
-## 4   1.90     79       Jane   F 21.88366</code></pre>
+## 1   1.38     31      Alice   F 16.27809
+## 2   1.45     35        Bob   M 16.64685
+## 3   1.21     28      Harry   M 19.12438
+## 4   1.56     40       Jane   F 16.43655</code></pre>
+<pre class="r"><code># We can also select row and columns using row/column numbers, e.g. row1
+df[1,]</code></pre>
+<pre><code>##   height weight first_name sex      bmi
+## 1   1.38     31      Alice   F 16.27809</code></pre>
+<pre class="r"><code># column 3
+df[,3]</code></pre>
+<pre><code>## [1] Alice Bob   Harry Jane 
+## Levels: Alice Bob Harry Jane</code></pre>
+<pre class="r"><code># matrices can&#39;t have different classes, everything forced to character.
+m.df &lt;- as.matrix(df)
+# therefore can&#39;t multiply
+# m.df[,&quot;height&quot;]*100</code></pre>
 <p><br><br></p>
 </div>
 <div id="subsetting" class="section level1">
@@ -596,60 +665,63 @@ df</code></pre>
 <pre class="r"><code>## Our data-frame contains the height, weight, first name and bmi of 4 individuals.
 df</code></pre>
 <pre><code>##   height weight first_name sex      bmi
-## 1   1.72     68      Alice   F 22.98540
-## 2   1.78     75        Bob   M 23.67125
-## 3   1.65     55      Harry   M 20.20202
-## 4   1.90     79       Jane   F 21.88366</code></pre>
+## 1   1.38     31      Alice   F 16.27809
+## 2   1.45     35        Bob   M 16.64685
+## 3   1.21     28      Harry   M 19.12438
+## 4   1.56     40       Jane   F 16.43655</code></pre>
 <pre class="r"><code>#To subset a data frame we can use square brackets i.e df[row,column]
 #Selecting a column(s)
 df$height</code></pre>
-<pre><code>## [1] 1.72 1.78 1.65 1.90</code></pre>
+<pre><code>## [1] 1.38 1.45 1.21 1.56</code></pre>
 <pre class="r"><code>df[,&quot;height&quot;]</code></pre>
-<pre><code>## [1] 1.72 1.78 1.65 1.90</code></pre>
+<pre><code>## [1] 1.38 1.45 1.21 1.56</code></pre>
 <pre class="r"><code>df[,1]</code></pre>
-<pre><code>## [1] 1.72 1.78 1.65 1.90</code></pre>
+<pre><code>## [1] 1.38 1.45 1.21 1.56</code></pre>
 <pre class="r"><code>df[,1:3]</code></pre>
 <pre><code>##   height weight first_name
-## 1   1.72     68      Alice
-## 2   1.78     75        Bob
-## 3   1.65     55      Harry
-## 4   1.90     79       Jane</code></pre>
+## 1   1.38     31      Alice
+## 2   1.45     35        Bob
+## 3   1.21     28      Harry
+## 4   1.56     40       Jane</code></pre>
 <pre class="r"><code>df[,c(1,3)]</code></pre>
 <pre><code>##   height first_name
-## 1   1.72      Alice
-## 2   1.78        Bob
-## 3   1.65      Harry
-## 4   1.90       Jane</code></pre>
+## 1   1.38      Alice
+## 2   1.45        Bob
+## 3   1.21      Harry
+## 4   1.56       Jane</code></pre>
 <pre class="r"><code>#selecting a row(s)
 df[1,]</code></pre>
-<pre><code>##   height weight first_name sex     bmi
-## 1   1.72     68      Alice   F 22.9854</code></pre>
-<pre class="r"><code>#We might also want to select observations (rows) based on characteristics of the data
+<pre><code>##   height weight first_name sex      bmi
+## 1   1.38     31      Alice   F 16.27809</code></pre>
+<pre class="r"><code>#We might also want to select observations (rows) based on the characteristics of the data
 #E.g. we might want to only look at the data for people who are taller than 1.75m
 
 #create a logical variable called min_height which contains T/F for each individual being over 175cm.
 min_height &lt;- df$height &gt;= 1.75
 min_height</code></pre>
-<pre><code>## [1] FALSE  TRUE FALSE  TRUE</code></pre>
+<pre><code>## [1] FALSE FALSE FALSE FALSE</code></pre>
 <pre class="r"><code>## Subset the data to include only those observations (rows) for which height &gt; 175cm (using min_height).
 df.at_least_175 &lt;- df[min_height,]
 df.at_least_175</code></pre>
-<pre><code>##   height weight first_name sex      bmi
-## 2   1.78     75        Bob   M 23.67125
-## 4   1.90     79       Jane   F 21.88366</code></pre>
+<pre><code>## [1] height     weight     first_name sex        bmi       
+## &lt;0 rows&gt; (or 0-length row.names)</code></pre>
 <pre class="r"><code>#People smaller than 1.75m
 ## Subset the data to include only those who are not above min-height of 175cm.
 smaller = df$height &lt; 1.75
 df[smaller,]</code></pre>
 <pre><code>##   height weight first_name sex      bmi
-## 1   1.72     68      Alice   F 22.98540
-## 3   1.65     55      Harry   M 20.20202</code></pre>
+## 1   1.38     31      Alice   F 16.27809
+## 2   1.45     35        Bob   M 16.64685
+## 3   1.21     28      Harry   M 19.12438
+## 4   1.56     40       Jane   F 16.43655</code></pre>
 <pre class="r"><code>df[!min_height,]</code></pre>
 <pre><code>##   height weight first_name sex      bmi
-## 1   1.72     68      Alice   F 22.98540
-## 3   1.65     55      Harry   M 20.20202</code></pre>
+## 1   1.38     31      Alice   F 16.27809
+## 2   1.45     35        Bob   M 16.64685
+## 3   1.21     28      Harry   M 19.12438
+## 4   1.56     40       Jane   F 16.43655</code></pre>
 <p>Note that there are other more advanced methods, which uses pipes and require less code (these are covered in more advanced courses). <br><br></p>
-<div id="exercises-2" class="section level2">
+<div id="exercises-3" class="section level2">
 <h2><span class="header-section-number">11.1</span> <em>Exercises</em></h2>
 <pre class="excc excc"><code>1. Select the 3rd row from the data frame
 
@@ -676,8 +748,9 @@ df[smaller,]</code></pre>
 <p><br></p>
 </div>
 </div>
-<div id="exercises-3" class="section level1">
-<h1><span class="header-section-number">12</span> Exercises</h1>
+<div id="independent-exercises" class="section level1">
+<h1><span class="header-section-number">12</span> Independent exercises</h1>
+<p>Exercises</p>
 <p><strong>Exercise 1</strong></p>
 <p>Calculate the following:</p>
 <ol style="list-style-type: lower-alpha">
@@ -702,7 +775,7 @@ df[smaller,]</code></pre>
  cbind(names,ages)</code></pre></li>
 </ol>
 <p>What happens if you try to use the ages?</p>
-<p><br> e) Create a dataframe for five individuals (Andrew, Betty, Carl, Diane and Elisa) who are aged (62,80,24,40,56) and have gender (male, female, male,female, female).</p>
+<p><br> e) Create a dataframe for five individuals (Andrew, Betty, Carl, Diane and Elisa) who are aged (62,80,24,40,56) and have gender (male, female, male, female, female).</p>
 <p><br> f) Use evaluations and subsetting to find the characteristics of the individual who can claim their free bus pass (age 65+).</p>
 <p><br> g) Create a variable in the dataframe called life expectancy, set this to 83 for females and 80 for males.</p>
 <p><br> h) Create another variable called lyr (life years remaining) which is the number of years to life expectancy for each individual</p>
